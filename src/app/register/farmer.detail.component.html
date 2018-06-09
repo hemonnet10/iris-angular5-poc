@@ -1,0 +1,157 @@
+<div >
+    <h2>My Profile</h2>
+    <form name="form" (ngSubmit)="f.form.valid && updateProfile()" #f="ngForm" novalidate>
+    <div style="float:left">
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" required disabled="disabled"/>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
+            <label for="mobile">Mobile No</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" required disabled="disabled"/>
+        </div>
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !isLandAvailable.valid }">
+            <label for="isLandAvailable">Land Available</label>
+          <label>     <input [(ngModel)]="farmerDetail.isLandAvailable" type="radio" value="Yes" name="isLandAvailable"  #isLandAvailable="ngModel" required />Yes</label>
+          <label>     <input type="radio"  name="isLandAvailable" [(ngModel)]="farmerDetail.isLandAvailable" value="No" #isLandAvailable="ngModel" required />No</label>
+            <div *ngIf="f.submitted && !isLandAvailable.valid" class="help-block">Land Available is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !landInHactares.valid }">
+            <label for="landInHactares">Land Size</label>
+            <input type="number"  name="landInHactares" [(ngModel)]="farmerDetail.landSize" #landInHactares="ngModel" required />
+            <select  name="landUnit" [(ngModel)]="farmerDetail.landUnit" #landInHactares="ngModel" required >
+            <option value="Square Meter">Square Meter</option>
+            <option value="Yard">Yard</option>
+            <option value="Biswa">Biswa</option>
+            <option value="Bigha">Bigha</option>
+			<option value="Acres">Acres</option>
+			<option value="Hectares">Hectares</option>
+			<option value="Other">Other</option>
+            </select>
+            <div *ngIf="f.submitted && !landInHactares.valid" class="help-block">Land Size is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nearestMandi.valid }">
+            <label for="nearestMandi">Nearest Mandi</label>
+            <input type="text" class="form-control" name="nearestMandi" [(ngModel)]="farmerDetail.nearestMandi" #nearestMandi="ngModel" required />
+            <div *ngIf="f.submitted && !nearestMandi.valid" class="help-block">Nearest Mandi is required</div>
+        </div>
+           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nearestMarket.valid }">
+            <label for="nearestMarket">Nearest Market</label>
+            <input type="text" class="form-control" name="nearestMarket" [(ngModel)]="farmerDetail.nearestMarket" #nearestMarket="ngModel" required />
+            <div *ngIf="f.submitted && !nearestMarket.valid" class="help-block">Nearest Market is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !farmingType.valid }">
+            <label for="farmingType">Farming Type</label>
+            <select  class="form-control" name="farmerType" [(ngModel)]="farmerDetail.farmingType" #farmingType="ngModel" required >
+            <option value="Self">Self</option>
+            <option value="Contract">Contract</option>
+            <option value="">Other</option>
+			</select>
+			 <input type="text" *ngIf="farmerDetail.farmingType!=null && farmerDetail.farmingType!='Self' &&
+			 farmerDetail.farmingType!='Self' && farmerDetail.farmingType!='Contract'"   class="form-control" name="farmerType" [(ngModel)]="farmerDetail.farmingType" #farmingType="ngModel" required >
+           
+            <div *ngIf="f.submitted && !farmingType.valid" class="help-block">Farming Type is required</div>
+        </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !profession.valid }">
+            <label for="profession">profession</label>
+            <select class="form-control" name="profession" [(ngModel)]="farmerDetail.profession" #profession="ngModel" required >
+             <option value="Farming">Farming</option>
+            <option value="Pet Care">Pet Care</option>
+            <option value="Milk Dairy">Milk Dairy</option>
+            <option value="Animal Care">Animal Care</option>
+            <option value="Landlord">Landlord</option>
+            <option value="Fisherman">Fisherman</option>
+            <option value="">Other</option>
+			</select>
+			
+            <input type="text" class="form-control" name="profession" [(ngModel)]="farmerDetail.profession" #profession="ngModel" required />
+            <div *ngIf="f.submitted && !profession.valid" class="help-block">Profession is required</div>
+        </div>
+        
+         
+        </div>
+        
+        <div style="float:right">
+       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !income.valid }">
+            <label for="income">Income</label>
+          
+         <label>   <input type="radio"  name="income" [(ngModel)]="farmerDetail.income" #income="ngModel" value="Yes" required />Yes</label>
+         <label>   <input type="radio"  name="income" [(ngModel)]="farmerDetail.income" #income="ngModel" value="No" required />No</label>
+            <div *ngIf="f.submitted && !income.valid" class="help-block">Income is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !familyMember.valid }">
+            <label for="familyMember">No Of Family Members</label>
+            <input type="text" class="form-control" name="familyMember" [(ngModel)]="farmerDetail.familyMember" #familyMember="ngModel" required />
+            <div *ngIf="f.submitted && !familyMember.valid" class="help-block">No Of family Member's is required</div>
+        </div>
+      <!--   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !adhaar.valid }">
+            <label for="adhaar">Adhaar No</label>
+            <input type="text" class="form-control" name="adhaar" [(ngModel)]="farmerDetail.adhaar" #adhaar="ngModel" required />
+            <div *ngIf="f.submitted && !adhaar.valid" class="help-block">Adhaar No is required</div>
+        </div> -->
+        
+        
+          <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !bankAccount.valid }">
+            <label for="bankAccount">Bank Account</label>
+            <input type="text" class="form-control" name="bankAccount" [(ngModel)]="farmerDetail.bankAccount" #bankAccount="ngModel" required />
+            <div *ngIf="f.submitted && !bankAccount.valid" class="help-block">Bank Account is required</div>
+        </div> -->
+        
+           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !isAssetAvailable.valid }">
+            <label for="isAssetAvailable">Asset Available</label>
+          <label>     <input [(ngModel)]="farmerDetail.isAssetAvailable" type="radio" value="Yes" name="isAssetAvailable"  #isAssetAvailable="ngModel" required />Yes</label>
+          <label>     <input type="radio"  name="isAssetAvailable" [(ngModel)]="farmerDetail.isAssetAvailable" value="No" #isAssetAvailable="ngModel" required />No</label>
+            <div *ngIf="f.submitted && !isAssetAvailable.valid" class="help-block">Asset Available is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !assetType.valid }">
+            <label for="assetType">Asset Type</label>
+            <select class="form-control" name="assetType" [(ngModel)]="farmerDetail.assetType" #assetType="ngModel" required >
+             <option value="Machine">Machine</option>
+            <option value="Land">Land</option>
+            <option value="Animal">Animal</option>
+			</select>
+			
+            <div *ngIf="f.submitted && !assetType.valid" class="help-block">Asset Type is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !asset.valid }">
+            <label for="asset">Name of Asset</label>
+            <input type="text" class="form-control" name="asset" [(ngModel)]="farmerDetail.asset" #asset="ngModel" required />
+            <div *ngIf="f.submitted && !asset.valid" class="help-block">Name of Asset is required</div>
+        </div>
+        
+        
+     <!--    <ss-multiselect-dropdown [options]="selectedCrops" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+      -->   
+        <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cropIds.valid }">
+    <label for="cropIds">Select Crops which can be Produced</label>
+    <select class="form-control" multiple="multiple" name="cropIds" id="cropIds" [(ngModel)]="cropIdsss" #cropIds="ngModel" required>
+        <option *ngFor="let crop of crops" value={{crop.id}}>{{crop.cropName}}</option>
+    </select>
+      <div *ngIf="f.submitted && !cropIds.valid" class="help-block">Choose Crops</div>
+</div> 
+         -->
+       <ng-autocomplete (selected)="Selected($event)" [classes]="['fifty','ng-autocomplete-dropdown']" [group]="group" ></ng-autocomplete>   
+    
+     <div class="form-group">
+     <label>Crops that can be produced</label>
+      <div *ngIf="crops!=null"> 
+    </div>
+         <span *ngFor="let crop of selectedCrops; let i = index">
+         <div>{{crop.cropName}}<a (click)="removeSelected(i)"><i class="fa fa-close fa-2x" style="padding-right: 2px">X</i></a></div> 
+         </span>
+      </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Update Profile</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+        </div>
+        </div>
+    </form>
+    
+    <!--  <div class="form-group">
+            <label for="otp">Enter OTP</label>
+            <input type="text" class="form-control" name="otp" [(ngModel)]="otp" #otp="ngModel" required />
+            <div *ngIf="f.submitted && !otp.valid" class="help-block">OTP is required</div>
+        </div> -->
+    
+</div>

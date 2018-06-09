@@ -1,0 +1,22 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.container{
+	background-color: #0b7104;
+    background-image: url(http://agriculture.cmsmasters.net/wp-content/uploads/2013/10/bg.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+login{
+	background-color: #88c184;
+	//background-image: url(https://s3.envato.com/files/69463211/preview.__large_preview.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+
+
+.active-link {
+	 background-color: #3f5d39;
+} 

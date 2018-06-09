@@ -1,0 +1,63 @@
+<h2>Open Orders</h2>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Crop</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+        <th>Order Due Date</th>
+        <th>Order Placed By</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="orders.length>0">
+      <tr *ngFor="let order of orders | statusFilter:'Open'">
+        <td>{{order.id}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.orderDueDate}}</td>
+        <td>{{order.orderPlacedBy}}</td>
+        <td>{{order.status}}</td>
+        <td><a (click)="getElibleFarmerForOrder(order)">Assign</a>
+        <span *ngIf="order.eligibleFarmers!=null">
+        <span *ngFor="let far of order.eligibleFarmers">
+         <input [(ngModel)]="order.orderReceivedBy" name="farmerId" value="{{far.id}}"  type="radio"/>{{far.name}}																																																																 
+        </span>
+        <input [disabled]="order.orderReceivedBy==null" type="button" (click)="assignOrder(order)" value="Assign Order">
+        </span>	
+        </td>
+      </tr>
+     </tbody>
+  </table>
+  
+  
+   <h2>Assigned Orders</h2>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Crop</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+        <th>Order Due Date</th>
+        <th>Order Placed By</th>
+        <th>Order Received By</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="orders.length>0">
+      <tr *ngFor="let order of orders | statusFilter:'Assigned'">
+        <td>{{order.id}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.orderDueDate}}</td>
+        <td>{{order.orderPlacedBy}}</td>
+        <td>{{order.orderReceivedBy}}</td>
+       <td>{{order.status}}</td>
+     </tr>
+     </tbody>
+  </table>

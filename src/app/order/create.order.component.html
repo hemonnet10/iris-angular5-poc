@@ -1,0 +1,47 @@
+<h2>Search</h2>
+<!-- <form [formGroup]="myForm"> -->
+	<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [settings]="mySettings"  [texts]="myTexts" ></ss-multiselect-dropdown>
+<!-- 	</form> -->
+  <form name="form" (ngSubmit)="f.form.valid && createOrder()" #f="ngForm" novalidate>
+   
+  <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cid.valid }">
+    <label for="cid">Select Category</label>
+    <select class="form-control" name="cid" id="cid" [(ngModel)]="categoryId" (change)="filterForCatergory($event.target.value)" #cid="ngModel" required >
+        <option *ngFor="let category of categories" value={{category.id}}>{{category.name}}
+    </select>
+    <div *ngIf="f.submitted && !cid.valid" class="help-block">Choose Crop Category</div>
+</div> -->
+
+   
+
+ <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cropName.valid }">
+    <label for="cropName">Enter Crop Name and choose from the list</label>
+     <div *ngIf="crops!=null"> 
+     <ng-autocomplete (selected)="selected($event)" [classes]="['form-control']" [group]="group"></ng-autocomplete>   
+     </div>
+    <input type="hidden"  class="form-control" name="cropName" id="cropName" [(ngModel)]="order.crop.id"  #cropName="ngModel" >
+      <div *ngIf="f.submitted && !cropName.valid" class="help-block">Choose Crop</div>
+</div> 
+	 <div class="form-group"
+		[ngClass]="{ 'has-error': f.submitted && qty.valid }">
+		<label for="qty">Quantity</label> <input type="number"
+			class="form-control" name="qty" [(ngModel)]="order.quantity"
+			#qty="ngModel" required />
+		<div *ngIf="f.submitted && !qty.valid" class="help-block">Quantity
+			is required</div>
+	</div> 
+	
+	 <div class="form-group"
+		[ngClass]="{ 'has-error': f.submitted && description.valid }">
+		<label for="qty">Description</label> <input type="text"
+			class="form-control" name="description" [(ngModel)]="order.description"
+			#description="ngModel" required />
+		<div *ngIf="f.submitted && !description.valid" class="help-block">Description
+			is required</div>
+	</div> 
+	
+	<div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Create Order</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        </form>

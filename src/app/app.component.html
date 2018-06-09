@@ -1,0 +1,49 @@
+
+
+		<section id="body" >
+		
+			<aside id="sidebar" class="column-left" style="width:20%" *ngIf="getRole()">
+
+				<h1><a href="http://www.agriyo.com" target="_blank">Agriyo</a></h1>
+								
+			<nav id="mainnav">
+  				<ul>
+  					<li *ngIf="getRole()==1"><a routerLink="/my_dashboard" routerLinkActive="active-link"><h2>My Dashboard</h2></a></li>
+  								<li *ngIf="getRole()==1"><a routerLink="/farmer_detail" routerLinkActive="active-link">My Profile</a></li>
+  								<li *ngIf="getRole()==2"><a routerLink="/search" routerLinkActive="active-link">Search</a></li>
+  								 <li *ngIf="getRole()==1"><a routerLink="/earn" routerLinkActive="active-link">Earn</a></li>
+                           		 <li *ngIf="getRole()==1"><a routerLink="/group" routerLinkActive="active-link">Discussion</a></li>
+                            		<li *ngIf="getRole()==1"><a routerLink="/facility" routerLinkActive="active-link">Loan/Insurance</a></li>
+                            	 	<li *ngIf="getRole()==1"><a routerLink="/scheme" routerLinkActive="active-link">Scheme</a></li>
+                            	 <li><a routerLink="/login" routerLinkActive="active-link">Logout</a></li>
+                           			
+                        	</ul>
+			</nav>
+
+			
+			
+			</aside>
+			<section id="content" class="column-right" style="width:80%;height:1000px">
+                		
+	    <article style="width:80%;height:80%">
+				
+			            <alert></alert>
+            <router-outlet></router-outlet>
+			
+		</article>
+
+			
+			<footer class="clear">
+				<p>&copy; 2018 Agriyo. <a href="http://agriyo.com/">Agriyo</a></p>
+			</footer>
+
+
+		</section>
+
+		<div class="clear"></div>
+
+	</section>
+	
+
+
+

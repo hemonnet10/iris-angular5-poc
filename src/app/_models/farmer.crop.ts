@@ -1,0 +1,8 @@
+
+import { Crop,User } from "./index";
+
+export class FarmerCrop {
+    id: number;
+    crop: Crop;
+    farmerId: number;
+}

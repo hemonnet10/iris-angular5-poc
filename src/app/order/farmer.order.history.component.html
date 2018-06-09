@@ -1,0 +1,44 @@
+<h2>My  Orders</h2>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Crop</th>
+        <th>Month Show</th>
+        <th>Harvested Month</th>
+        <!-- <th>Crops Type</th> -->
+        <!-- <th>Land Size</th> -->
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr><td colspan="8">Current Production</td></tr>
+     
+      <tr *ngFor="let order of orders | statusFilter:'Accepted'">
+        <td>{{order.orderDate | date:'yyyy'}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.orderDate | date:'MM'}}</td>
+        <td>{{order.orderDate | date:'MM'}}</td>
+        <!-- <td>{{order.crop.productCategory.name}}</td> -->
+        <!-- <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td> -->
+        <td>{{order.quantity}}</td>
+        <td></td>
+      </tr>
+      <tr><td colspan="8"> Last Production</td></tr>
+      
+      <tr *ngFor="let order of orders | statusFilter:'Closed'">
+        <td>{{order.orderDate  | date:'yyyy'}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.orderDate | date:'MM'}}</td>
+        <td>{{order.orderDate | date:'MM'}}</td>
+     <!--    <td>{{order.crop.productCategory.name}}</td>
+        <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td>
+       -->  <td>{{order.quantity}}</td>
+        <td></td>
+      </tr>
+      
+     </tbody>
+  </table>
+  
+  

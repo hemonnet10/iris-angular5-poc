@@ -1,0 +1,58 @@
+<h2>Earn</h2>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Crop</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+        <th>Order Due Date</th>
+        <th>Order Placed By</th>
+        <th>Order Received By</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders | statusFilter:'Assigned'">
+        <td>{{order.id}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.orderDueDate}}</td>
+        <td>{{order.orderPlacedBy}}</td>
+        <td>{{order.orderReceivedBy}}</td>
+        <td>{{order.status}}</td>
+        <td ><span *ngIf="order.status=='Assigned'"><input type="button" (click)="acceptOrder(order.id)" value="Accept Order"></span></td>
+      </tr>
+     </tbody>
+  </table>
+  
+  
+   <h2>My Accepted Orders</h2>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Crop</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+        <th>Order Due Date</th>
+        <th>Order Placed By</th>
+        <th>Order Received By</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders | statusFilter:'Accepted'">
+        <td>{{order.id}}</td>
+        <td>{{order.crop.cropName}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.orderDueDate}}</td>
+        <td>{{order.orderPlacedBy}}</td>
+        <td>{{order.orderReceivedBy}}</td>
+       <td>{{order.status}}</td>
+     </tr>
+     </tbody>
+  </table>

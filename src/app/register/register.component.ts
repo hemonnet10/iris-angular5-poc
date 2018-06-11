@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿﻿import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AlertService, UserService } from '../_services/index';
@@ -28,7 +28,7 @@ export class RegisterComponent {
         this.userService.create(this.user)
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                    this.alertService.success('Registration successful', false);
                    this.loading = false;
                 },
                 error => {
@@ -42,7 +42,7 @@ export class RegisterComponent {
         this.userService.create(this.user)
             .subscribe(
                 data => {
-                    this.alertService.success('Your account is verified successfully', true);
+                    this.alertService.success('Your account is verified successfully', false);
                     this.router.navigate(['/login']);
                 },
                 error => {

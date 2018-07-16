@@ -1,0 +1,73 @@
+<!-- <p> -->
+  <!-- search works! -->
+  <!-- Type of search is---- {{type}} with name---- {{name}} -->
+
+<!-- .....{{returnUrl}} -->
+<!-- </p> -->
+
+
+    <div class="search_section">
+
+     
+      <!-- Wrapper for slides -->
+    
+            <form class="form-inline">
+              <select class="form-control height60" style="padding: 6px 12px;">
+                <option hidden="true" selected="">Choose Option</option>
+                <option>Farm</option>
+                <option>Crop</option>
+              </select>
+              <div class="form-group">
+                <input type="text" class="form-control height60" id="" placeholder="Farm or Crop name/State/District/Area Pin Code">
+              </div>
+              <button type="submit" class="btn btn-success">SEARCH</button>
+            </form>
+        </div>
+		<div>
+		<ul><li class="heading">Crop</li><li class="subgroup">Wheat</li></ul>
+		<ul><li class="heading">Farm</li><li class="subgroup">Muradabad</li></ul>
+		</div>
+		
+		<div>
+	   <ul><li class="variety">Crop Name</li><li class="variety">Crop type</li><li class="variety">Location/ optional</li>
+	   <li class="variety search_v"><input type="button" value="Search"></li>
+	   </ul>
+	   
+	   <table class="table">
+	   <tr class="thead"><td>Crop</td><td>Crop type</td><td>Volume</td><td>Size</td><td>Price</td></tr>
+	   	   <tr><td>Wheat</td><td>Cereals</td><td>5</td><td>Quintal</td><td>1000</td></tr>
+		   	   	   <tr><td>Maize</td><td>Cereals</td><td>4</td><td>Quintal</td><td>2000</td></tr>
+	   </table>
+	   <table class="table total_table">
+	   <tr class="thead"><td>Wheat and Maize</td><td>Total Volume 9 kuntal</td><td>total amount</td><td>20000</td></tr>
+       <tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
+	   </table>
+	   
+		</div>
+		
+		 <ul><li class="variety">Farm</li><li class="variety variety_select"><select><option>- Select field size -</option><option></option></select></li>
+	   </ul>
+	   
+	   <ul><li class="variety">Location - Muradabad</li>
+	   <li class="variety">Field size: 600 hectare</li>
+	   
+	   <li class="variety variety_select"><select><option>- Select location -</option><option></option></select></li>
+	   </ul>
+	   
+	   <ul><li class="variety variety_select full_address">Select location <select><option>- Country -</option><option></option></select>
+	   <select><option>- State -</option><option></option></select>
+	   <select><option>- Distict -</option><option></option></select> <select><option>Address/pincode</option><option></option></select>
+	   </li>
+	   	   <li class="variety search_v"><input type="button" value="Search"></li>
+
+	   
+	   </ul>
+	   
+	   <table class="table"><tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
+</table>
+		
+		<script>
+window.addEventListener('DOMContentLoaded', function() {
+  console.log('window - DOMContentLoaded - capturemmmmmmmmmm'); // 1st
+}, true);
+</script>

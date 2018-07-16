@@ -13,7 +13,7 @@ import { User } from '../_models/index';
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
-    returnUrl: string;
+    returnUrl: string='rrrrrrrrrrrrrrrrrrr';
 
     constructor(
         private route: ActivatedRoute,

@@ -1,0 +1,153 @@
+.carousel-section {
+    /* background: url(../images/slide-1.jpg) no-repeat fixed; */
+	background:#000;
+    background-size: cover;
+    overflow: hidden;
+	height:211px;
+}
+
+@media (min-width: 768px){
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+}
+
+.height60 {
+    height: 60px !important;
+}
+.form-control {
+    height: 40px;
+    padding: 20px;
+    line-height: 25px;
+    font-weight: 300;
+    color: #202020;
+    border-radius: 0;
+	margin-right:5px;
+}
+
+.btn {
+    font-size: 20px;
+    line-height: 18px;
+    font-weight: 300;
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    border-radius: 30px;
+    padding: 20px 58px;
+	
+}
+.search_section	{
+	position:relative; 
+	width:100%;
+	
+}
+
+section#search {
+    padding: 20px;
+    background-color: #ddd;
+}
+ul .heading{
+	background:sky-blue;
+}
+ul .subgroup{
+	background:sky-blue;
+}
+.heading {
+      font-size: 16px;
+    background: blue;
+    width: 100px;
+    color: #fff;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px 10px;
+    display: inline-block;
+}
+.subgroup{
+    font-size: 16px;
+    background: blue;
+    width: 330px;
+    color: #fff;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px 10px;
+    display: inline-block;
+}
+.variety{
+	font-size: 16px;
+    background: blue;
+    color: #fff;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px 10px;
+    display: inline-block;
+}
+ul, ol {
+    margin: 10px 0px;
+}
+.variety.search_v{
+	padding:0px;
+}
+.variety.search_v  input{
+	padding: 8px 10px;
+    background: transparent;
+}
+.total_table tr:first-child{
+	background:yellow;
+}
+.table
+{
+	width:70%;margin: 50px 0px;
+	margin-bottom:0px !important;
+}
+.table tr.thead td{
+	border-top:1px solid transparent;
+}
+.total_table{
+	margin-top:0px !important;
+}
+.pull-right{
+	float:right;
+}
+.button_outer{
+text-align:right;	
+}
+.button_outer  .btn{
+	color:#fff;
+	background:green;
+	padding:10px 15px;border-radius:4px;
+}
+.variety select{
+	background: transparent;
+    border: none;
+    padding: 10px;
+}
+.variety_select{
+	padding:0px !important;
+}
+.full_address{
+	padding-left:8px !important;
+	padding-right:5px !important;
+}
+.search_section{
+	padding: 20px;
+    background: #888;
+    height: 200px;
+}
+.form-group{
+	width:370px;
+}
+ .form-group  .form-control{
+	 width:350px;
+ }
+ .search_section form{
+	 top: 70px;
+    position: absolute;
+ }
+ 

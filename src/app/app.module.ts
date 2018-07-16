@@ -18,7 +18,8 @@ import {StatusFilterPipe} from './filter/index';
 import {NgAutoCompleteModule} from "ng-auto-complete";
 import {PreserveFoodComponent} from './preserve-food/preserve-food.component';
 import {AppRoutingModule} from './app-routing.module';
-import { MultiselectDropdownModule } from 'angular-4-dropdown-multiselect';
+import { MultiselectDropdownModule } from 'angular-4-dropdown-multiselect';;
+import { SearchComponent } from './search/index'
 
 @NgModule({
   imports: [
@@ -46,7 +47,9 @@ import { MultiselectDropdownModule } from 'angular-4-dropdown-multiselect';
     FarmerOrderHistoryComponent,
     HelpComponent,
     AssignOrderComponent,
-    PreserveFoodComponent],
+    PreserveFoodComponent,
+	SearchComponent],
+    
   providers: [
     AuthGuard,
     AlertService,

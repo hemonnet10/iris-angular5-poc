@@ -12,10 +12,14 @@ import { FacilityComponent,SchemeComponent,HelpComponent} from './facility/index
 import { GroupComponent} from './group/index';
 import { PreserveFoodComponent } from './preserve-food/preserve-food.component';
 import { NgModule } from '@angular/core';
+import{ SearchComponent } from './search/index';
 
 const appRoutes: Routes = [
   { path: 'preserve', component: PreserveFoodComponent },
-  { path: '', component: HomeComponent,canActivate: [AuthGuard] },
+  
+    { path: '', component: SearchComponent },
+ { path: 'search', component: SearchComponent },
+
   { path: 'my_dashboard', component: HomeComponent,canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },

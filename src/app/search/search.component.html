@@ -1,51 +1,75 @@
 <!-- <p> -->
-  <!-- search works! -->
-  <!-- Type of search is---- {{type}} with name---- {{name}} -->
+<!-- search works! -->
+<!-- Type of search is---- {{type}} with name---- {{name}} -->
 
 <!-- .....{{returnUrl}} -->
 <!-- </p> -->
 
 
-    <div class="search_section">
+<div class="search_section">
 
-     
-      <!-- Wrapper for slides -->
-    
-            <form class="form-inline">
-              <select class="form-control height60" style="padding: 6px 12px;">
-                <option hidden="true" selected="">Choose Option</option>
-                <option>Farm</option>
-                <option>Crop</option>
-              </select>
-              <div class="form-group">
-                <input type="text" class="form-control height60" id="" placeholder="Farm or Crop name/State/District/Area Pin Code">
-              </div>
-              <button type="submit" class="btn btn-success">SEARCH</button>
-            </form>
-        </div>
-		<div>
+
+	<!-- Wrapper for slides -->
+
+	<form name="form" class="form-inline" (ngSubmit)="search()">
+		<select class="form-control height60" style="padding: 6px 12px;" name="type"
+			[(ngModel)]="type">
+			<option value="Crop">Crop</option>
+			<option value="Farm">Farm</option>
+		</select>
+		<div class="form-group">
+<!-- 		    <ng-autocomplete (selected)="selected($event)" [classes]="['form-control height60']" [group]="group"></ng-autocomplete>   
+ --> 
+			<input type="text" [(ngModel)]="cropName" name="cropName"
+				class="form-control height60" id=""
+				placeholder="Farm or Crop name/State/District/Area Pin Code">
+		</div>
+		<button type="submit" class="btn btn-success">SEARCH</button>
+	</form>
+</div>
+<!-- <div>
 		<ul><li class="heading">Crop</li><li class="subgroup">Wheat</li></ul>
 		<ul><li class="heading">Farm</li><li class="subgroup">Muradabad</li></ul>
 		</div>
-		
-		<div>
-	   <ul><li class="variety">Crop Name</li><li class="variety">Crop type</li><li class="variety">Location/ optional</li>
+		 -->
+<div>
+	<!-- 	   <ul><li class="variety">Crop Name</li><li class="variety">Crop type</li><li class="variety">Location/ optional</li>
 	   <li class="variety search_v"><input type="button" value="Search"></li>
 	   </ul>
-	   
-	   <table class="table">
-	   <tr class="thead"><td>Crop</td><td>Crop type</td><td>Volume</td><td>Size</td><td>Price</td></tr>
-	   	   <tr><td>Wheat</td><td>Cereals</td><td>5</td><td>Quintal</td><td>1000</td></tr>
-		   	   	   <tr><td>Maize</td><td>Cereals</td><td>4</td><td>Quintal</td><td>2000</td></tr>
-	   </table>
-	   <table class="table total_table">
-	   <tr class="thead"><td>Wheat and Maize</td><td>Total Volume 9 kuntal</td><td>total amount</td><td>20000</td></tr>
-       <tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
-	   </table>
-	   
-		</div>
+ -->
+	<table class="table">
+		<tr class="thead">
+			<td></td>
+			<td>Crop</td>
+			<td>Crop type</td>
+			<td>Volume</td>
+			<td>Price</td>
+		</tr>
+		<tr *ngFor="let farmerCrop of farmerCrops">
+			<td><input type="radio" value="{{farmerCrop.crop.id}}" name="cropId" [(ngModel)]="selectedCropId"/></td>
+			<td>{{farmerCrop.crop.cropName}}</td>
+			<td>{{type}}</td>
+			<td>{{farmerCrop.volume}}</td>
+			<td>{{farmerCrop.price}}</td>
+		</tr>
 		
-		 <ul><li class="variety">Farm</li><li class="variety variety_select"><select><option>- Select field size -</option><option></option></select></li>
+	</table>
+	<table class="table total_table">
+		<tr class="thead">
+			<td>Wheat and Maize</td>
+			<td>Total Volume 9 kuntal</td>
+			<td>total amount</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td colspan="4" class="button_outer"><input type="button" (click)="createOrder()"
+				value="Book" class="button btn"></td>
+		</tr>
+	</table>
+
+</div>
+
+<!--  <ul><li class="variety">Farm</li><li class="variety variety_select"><select><option>- Select field size -</option><option></option></select></li>
 	   </ul>
 	   
 	   <ul><li class="variety">Location - Muradabad</li>
@@ -62,12 +86,12 @@
 
 	   
 	   </ul>
-	   
-	   <table class="table"><tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
+ -->
+<!-- 	   <table class="table"><tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
 </table>
-		
-		<script>
-window.addEventListener('DOMContentLoaded', function() {
-  console.log('window - DOMContentLoaded - capturemmmmmmmmmm'); // 1st
-}, true);
+ -->
+<script>
+	window.addEventListener('DOMContentLoaded', function() {
+		console.log('window - DOMContentLoaded - capturemmmmmmmmmm'); // 1st
+	}, true);
 </script>

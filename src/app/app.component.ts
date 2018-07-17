@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ChangeDetectorRef} from '@angular/core';
 
 
 import {AuthenticationService} from './_services/index';
@@ -14,11 +14,16 @@ import {AuthenticationService} from './_services/index';
 export class AppComponent {
 
   constructor(
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private cdRef: ChangeDetectorRef
   ) {}
 
   getRole() {
     return this.authenticationService.getRole();
+  }
+  ngAfterViewChecked() {
+    console.log("view changed");
+    this.cdRef.detectChanges();
   }
 
 }

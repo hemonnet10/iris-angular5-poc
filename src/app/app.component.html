@@ -2,15 +2,14 @@
 
 
 <section id="body">
-<!-- <div id="google_translate_element">Google Language converter</div> -->
-	<aside class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
-		 *ngIf="getRole()!=null"> 
+	<div id="google_translate_element">Google Language converter</div>
+	<aside class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 
-		<h1 class="hidden-sm hidden-xs">
+		<h1 class="hidden-sm hidden-xs" *ngIf="getRole()!=null">
 			<a href="http://www.agriyo.com" target="_blank">Agriyo</a>
 		</h1>
 
-	 	<nav id="mainnav" class="hidden-sm hidden-xs">
+		<nav id="mainnav" class="hidden-sm hidden-xs">
 			<ul>
 				<li *ngIf="getRole()==1"><a routerLink="/my_dashboard"
 					routerLinkActive="active-link"><h2>My Dashboard</h2></a></li>
@@ -26,51 +25,65 @@
 					routerLinkActive="active-link">Loan/Insurance</a></li>
 				<li *ngIf="getRole()==1"><a routerLink="/scheme"
 					routerLinkActive="active-link">Scheme</a></li>
-				<li><a routerLink="/login" routerLinkActive="active-link">Logout</a></li>
+				<li *ngIf="getRole()!=null"><a routerLink="/login"
+					routerLinkActive="active-link">Logout</a></li>
 
 			</ul>
-		</nav> 
-		
-		
-		<div role="banner" class="navbar navbar-fixed-top navbar-inverse hidden-md hidden-lg">
-      <div class="container">
-        <div class="navbar-header">
-                  <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        			<div class="title_h1"><a href="http://www.agriyo.com" target="_blank">Agriyo</a></div>
+		</nav>
 
-        </div>
-        <div class="navbar-inverse side-collapse in">
-          <nav role="navigation" class="navbar-collapse">
-       	<ul>
-				<li *ngIf="getRole()==1"><a routerLink="/my_dashboard"
-					routerLinkActive="active-link"><h2>My Dashboard</h2></a></li>
-				<li *ngIf="getRole()==1"><a routerLink="/farmer_detail"
-					routerLinkActive="active-link">My Profile</a></li>
-				<li *ngIf="getRole()==2"><a routerLink="/search"
-					routerLinkActive="active-link">Search</a></li>
-				<li *ngIf="getRole()==1"><a routerLink="/earn"
-					routerLinkActive="active-link">Earn</a></li>
-				<li *ngIf="getRole()==1"><a routerLink="/group"
-					routerLinkActive="active-link">Discussion</a></li>
-				<li *ngIf="getRole()==1"><a routerLink="/facility"
-					routerLinkActive="active-link">Loan/Insurance</a></li>
-				<li *ngIf="getRole()==1"><a routerLink="/scheme"
-					routerLinkActive="active-link">Scheme</a></li>
-				<li><a routerLink="/login" routerLinkActive="active-link">Logout</a></li>
 
-			</ul>
-          </nav>
-        </div>
-      </div>
-    </div>
+		<div role="banner"
+			class="navbar navbar-fixed-top navbar-inverse hidden-md hidden-lg">
+			<div class="container">
+				<div class="navbar-header">
+					<button data-toggle="collapse-side" data-target=".side-collapse"
+						data-target-2=".side-collapse-container" type="button"
+						class="navbar-toggle pull-left">
+						<span class="icon-bar"></span><span class="icon-bar"></span><span
+							class="icon-bar"></span>
+					</button>
+					<div class="title_h1">
+						<a href="http://www.agriyo.com" target="_blank">Agriyo</a>
+					</div>
+
+				</div>
+				<div class="navbar-inverse side-collapse in">
+					<nav role="navigation" class="navbar-collapse">
+						<ul>
+							<li *ngIf="getRole()==1"><a routerLink="/my_dashboard"
+								routerLinkActive="active-link"><h2>My Dashboard</h2></a></li>
+							<li *ngIf="getRole()==1"><a routerLink="/farmer_detail"
+								routerLinkActive="active-link">My Profile</a></li>
+							<li *ngIf="getRole()==2"><a routerLink="/search"
+								routerLinkActive="active-link">Search</a></li>
+							<li *ngIf="getRole()==1"><a routerLink="/earn"
+								routerLinkActive="active-link">Earn</a></li>
+							<li *ngIf="getRole()==1"><a routerLink="/group"
+								routerLinkActive="active-link">Discussion</a></li>
+							<li *ngIf="getRole()==1"><a routerLink="/facility"
+								routerLinkActive="active-link">Loan/Insurance</a></li>
+							<li *ngIf="getRole()==1"><a routerLink="/scheme"
+								routerLinkActive="active-link">Scheme</a></li>
+							<li><a routerLink="/search"
+								routerLinkActive="active-link">Search</a></li>
+							<li *ngIf="getRole()!=null"><a routerLink="/login"
+								routerLinkActive="active-link">Logout</a></li>
+							<li *ngIf="getRole()==null"><a routerLink="/login"
+								routerLinkActive="active-link">Login</a></li>
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
 
 
 
 	</aside>
-	<section id="content"
-		style=" height: 1000px">
 
-		<article style=" height: 80%">
+	<section id="content" style="height: 1000px">
+
+		<article style="height: 80%">
 
 			<alert></alert>
 			<router-outlet></router-outlet>

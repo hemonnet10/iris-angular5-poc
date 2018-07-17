@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   selectedCropId: number;
 
   loading = false;
-  optionsModel: number;
+  optionsModel: IMultiSelectOption;
   myOptions: IMultiSelectOption[];
 
   // Settings configuration
@@ -87,17 +87,20 @@ export class SearchComponent implements OnInit {
 
   }
   onChange(event) {
-    console.log(this.optionsModel);
+    console.log(event);
+    console.log(this.optionsModel.id);
+    console.log(this.optionsModel.id);
+    console.log(this.optionsModel.name);
   }
 
 
   ngOnInit() {
-    this.getCropByCategory(3);
     this.order.crop = new Crop();
     this.farmerCrops = this.userService.farmerCrops;
     this.cropName = this.userService.cropName
     this.type = this.userService.type;
     this.selectedCropId = this.userService.selectedCropId;
+    this.getCropByCategory(3);
 
   }
   search() {
@@ -144,16 +147,6 @@ export class SearchComponent implements OnInit {
 
   }
 
-  filterForCatergory(filterVal: any) {
-    if (filterVal == "0")
-      console.log(0);
-    else
-      this.getCropByCategory(filterVal);
-  }
-
-  filterForCrop(filterVal: any) {
-
-  }
-
+  
 
 }

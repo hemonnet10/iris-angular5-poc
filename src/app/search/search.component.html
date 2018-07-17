@@ -46,13 +46,21 @@
 			<td>Volume</td>
 			<td>Price</td>
 		</tr>
-		<tr *ngFor="let farmerCrop of farmerCrops">
-			<td><input type="radio" value="{{farmerCrop.crop.id}}"
-				name="cropId" [(ngModel)]="selectedCropId" /></td>
-			<td>{{farmerCrop.crop.cropName}}</td>
-			<td>{{type}}</td>
-			<td>{{farmerCrop.volume}}</td>
-			<td>{{farmerCrop.price}}</td>
+		<!-- <tr *ngFor="let farmerCrop of farmerCrops"> -->
+			<!-- <td><input type="radio" value="{{farmerCrop.crop.id}}" -->
+				<!-- name="cropId" [(ngModel)]="selectedCropId" /></td> -->
+			<!-- <td>{{farmerCrop.crop.cropName}}</td> -->
+			<!-- <td>{{type}}</td> -->
+			<!-- <td>{{farmerCrop.volume}}</td> -->
+			<!-- <td>{{farmerCrop.price}}</td> -->
+		<!-- </tr> -->
+			<tr>
+			<td><input type="radio" value="Farm"
+				name="cropId"/></td>
+			<td>demo</td>
+			<td>demo</td>
+			<td>demo</td>
+			<td>demo</td>
 		</tr>
 
 	</table>
@@ -65,13 +73,13 @@
 		</tr>
 		<tr>
 			<td colspan="4" class="button_outer"><input type="button"
-				(click)="createOrder()" value="Book" class="button btn"></td>
+			 value="Book" class="button btn"></td>
 		</tr>
 	</table>
 
 </div>
 
-<!--  <ul><li class="variety">Farm</li><li class="variety variety_select"><select><option>- Select field size -</option><option></option></select></li>
+  <ul><li class="variety">Farm</li><li class="variety variety_select"><select><option>- Select field size -</option><option></option></select></li>
 	   </ul>
 	   
 	   <ul><li class="variety">Location - Muradabad</li>
@@ -88,7 +96,7 @@
 
 	   
 	   </ul>
- -->
+ 
 <!-- 	   <table class="table"><tr><td colspan="4" class="button_outer"><input type="button" value="Book" class="button btn"></td></tr>
 </table>
  -->

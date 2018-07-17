@@ -150,4 +150,49 @@ text-align:right;
 	 top: 70px;
     position: absolute;
  }
+ @media screen and (max-width: 991px) {
+ .btn-success {
+    width: 100% !important;
+    border-radius: 0px;
+    height: 36px;
+    font-size: 14px;
+    padding: 0px 0px;
+}
+.table{
+	width:100% !important; 
+}
+.variety{
+	margin-bottom:5px !important; width:100%;
+}
+.full_address{
+	background:transparent !important;	
+}
+.full_address select{
+	background:#ddd !important; color:#000;margin-bottom:5px; width:100% !important;
+}
+ .search_section{
+	 width:100%; padding: 0px; height:170px;
+ }
+ .form-inline{
+  top:0px !important;
+  padding: 15px !important; 
+  height:36px !important;
+ }
+ 
+ .search_section .form-control, .search_section .form-inline{
+	 width:100% !important;
+ }
+ .form-group{
+	 width:100%;
+ }
+ .search_section .form-control{
+	 height:36px !important; margin-bottom:10px;
+ }
+.variety.search_v input{
+	padding: 8px 10px;
+    background: transparent;
+    border: 0px;
+    height: 39px;
+}
+ }
  

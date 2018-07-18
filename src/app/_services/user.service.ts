@@ -3,14 +3,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {appConfig} from '../app.config';
-import {User, FarmerDetail, UserRequest, FarmerCrop} from '../_models/index';
+import {User, FarmerDetail, UserRequest, FarmerCrop, SearchInput} from '../_models/index';
+import { SearchResult } from '../_models/search.result';
 
 
 @Injectable()
 export class UserService {
-  cropName: string;
-  type: string= 'Crop';
-  farmerCrops: FarmerCrop[];
+  searchInput: SearchInput;
+  searchResults: SearchResult[];
   selectedCropId: number;
   constructor(private http: HttpClient) {}
 
@@ -58,7 +58,7 @@ export class UserService {
   }
 
   search() {
-    return this.http.post<FarmerCrop[]>(appConfig.apiUrl + 'orders/search/', {cropName: this.cropName});
+    return this.http.post<SearchResult[]>(appConfig.apiUrl + 'orders/search/', this.searchInput);
   }
 
 

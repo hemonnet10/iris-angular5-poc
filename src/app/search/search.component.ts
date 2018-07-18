@@ -2,12 +2,12 @@ import {FarmerCrop} from '../_models/farmer.crop';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {User, Order, Category, Crop} from '../_models/index';
+import {User, Order, Category, Crop, SearchInput} from '../_models/index';
+import { SearchResult } from '../_models/search.result';
 import {AlertService, UserService, OrderService} from '../_services/index';
 import {FormBuilder, Form} from '@angular/forms';
 import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from 'angular-4-dropdown-multiselect';
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
-//import { takeUntil } from 'rxjs/Operator';
 
 
 @Component({
@@ -16,12 +16,10 @@ import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComp
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
-
-  type: string = 'Crop';
-  cropName: string;
-  farmerCrops: FarmerCrop[];
+  searchInput: SearchInput;
+  searchResults: SearchResult[];
   selectedCropId: number;
+  selectedVolume:number;
 
   loading = false;
   optionsModel: IMultiSelectOption;
@@ -66,16 +64,17 @@ export class SearchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder) {
+    this.searchInput = userService.searchInput;
+    if (this.searchInput == null) {
+      this.searchInput = new SearchInput();
+    }
 
-    if (this.route.snapshot.queryParams['type'] != null)
-      this.type = this.route.snapshot.queryParams['type'];
-    else
-      this.type = this.userService.type;
-    //this.name = this.route.snapshot.queryParams['name'];
-    console.log('sssssssss=' + this.type);
+    if (this.route.snapshot.queryParams['type'] != null) {
+      this.searchInput.searchType = this.route.snapshot.queryParams['type'];
+    }
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.userService.type = this.type;
+    this.userService.searchInput = this.searchInput;
 
   }
 
@@ -83,7 +82,7 @@ export class SearchComponent implements OnInit {
 
   selected(item: SelectedAutocompleteItem) {
     console.log(item.item.original);
-    this.cropName = item.item.title;
+    this.searchInput.cropName = item.item.title;
 
   }
   onChange(event) {
@@ -96,19 +95,19 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.order.crop = new Crop();
-    this.farmerCrops = this.userService.farmerCrops;
-    this.cropName = this.userService.cropName
-    this.type = this.userService.type;
+    this.searchResults = this.userService.searchResults;
+    this.searchInput = this.userService.searchInput;
     this.selectedCropId = this.userService.selectedCropId;
     this.getCropByCategory(3);
 
+
   }
   search() {
-    this.userService.cropName = this.cropName;
+    this.userService.searchInput = this.searchInput;
     this.userService.search().subscribe(
       response => {
-        this.userService.farmerCrops = response;
-        this.farmerCrops = response;
+        this.userService.searchResults = response;
+        this.searchResults = response;
 
       });
 
@@ -147,6 +146,6 @@ export class SearchComponent implements OnInit {
 
   }
 
-  
+
 
 }

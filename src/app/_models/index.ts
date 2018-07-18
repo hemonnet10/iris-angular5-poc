@@ -8,3 +8,6 @@ export * from './order.assign';
 export * from './farmer.detail';
 export * from './farmer.crop';
 export * from './user.request';
+export * from './search.input';
+export * from './search.result';
+

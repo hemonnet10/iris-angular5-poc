@@ -13,21 +13,24 @@
 
 	<form name="form" class="form-inline" (ngSubmit)="search()">
 		<select class="form-control height60" style="padding: 6px 12px;"
-			name="type" [(ngModel)]="type">
+			name="type" [(ngModel)]="searchInput.searchType">
 			<option value="Crop">Crop</option>
 			<option value="Farm">Farm</option>
 		</select>
 		<div class="form-group">
-				<!-- <ss-multiselect-dropdown name="optionsModel" [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [settings]="mySettings"  [texts]="myTexts" ></ss-multiselect-dropdown>	   
+			<!-- <ss-multiselect-dropdown name="optionsModel" [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [settings]="mySettings"  [texts]="myTexts" ></ss-multiselect-dropdown>	   
   -->
-			<input type="text" [(ngModel)]="cropName" name="cropName"
-				class="form-control height60" id=""
-				placeholder="Farm or Crop name/State/District/Area Pin Code">
+			<input type="text" [(ngModel)]="searchInput.cropName" name="cropName"
+				class="form-control height60" id="cropName"
+				placeholder="Farm or Crop name"> <input type="text"
+				[(ngModel)]="searchInput.location" name="location"
+				class="form-control height60" id="location"
+				placeholder="State/District">
 		</div>
 		<button type="submit" class="btn btn-success">SEARCH</button>
 	</form>
 </div>
- 
+
 <!-- <div>
 		<ul><li class="heading">Crop</li><li class="subgroup">Wheat</li></ul>
 		<ul><li class="heading">Farm</li><li class="subgroup">Muradabad</li></ul>
@@ -43,16 +46,17 @@
 			<td></td>
 			<td>Crop</td>
 			<td>Crop type</td>
+			<td>Location</td>
 			<td>Volume</td>
-			<td>Price</td>
 		</tr>
-		<tr *ngFor="let farmerCrop of farmerCrops">
-			<td><input type="radio" value="{{farmerCrop.crop.id}}"
+		<tr *ngFor="let searchResult of searchResults">
+			<td><input type="radio" value="{{searchResult.id}}"
 				name="cropId" [(ngModel)]="selectedCropId" /></td>
-			<td>{{farmerCrop.crop.cropName}}</td>
-			<td>{{type}}</td>
-			<td>{{farmerCrop.volume}}</td>
-			<td>{{farmerCrop.price}}</td>
+			<td>{{searchResult.cropName}}</td>
+			<td>{{searchInput.searchType}}</td>
+			<td>{{searchResult.location}}</td>
+			<td><input type="number"  [(ngModel)]="order.quantity" name="selectedVolume"
+				 max="{{searchResult.volume}}" /> out of {{searchResult.volume}} tons</td>
 		</tr>
 
 	</table>

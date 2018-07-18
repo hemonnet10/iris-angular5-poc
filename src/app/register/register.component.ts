@@ -7,7 +7,8 @@ import { User,Role } from '../_models/index';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'register.component.html'
+    templateUrl: 'register.component2.html',
+    styleUrls: ['./register.component.css']
 })
 
 export class RegisterComponent {

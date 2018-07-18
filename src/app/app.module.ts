@@ -18,8 +18,9 @@ import {StatusFilterPipe} from './filter/index';
 import {NgAutoCompleteModule} from "ng-auto-complete";
 import {PreserveFoodComponent} from './preserve-food/preserve-food.component';
 import {AppRoutingModule} from './app-routing.module';
-import { MultiselectDropdownModule } from 'angular-4-dropdown-multiselect';;
-import { SearchComponent } from './search/index'
+import {MultiselectDropdownModule} from 'angular-4-dropdown-multiselect';
+import {SearchComponent} from './search/index';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
   imports: [
@@ -48,8 +49,8 @@ import { SearchComponent } from './search/index'
     HelpComponent,
     AssignOrderComponent,
     PreserveFoodComponent,
-	SearchComponent],
-    
+    SearchComponent],
+
   providers: [
     AuthGuard,
     AlertService,
@@ -62,7 +63,8 @@ import { SearchComponent } from './search/index'
     ErrorInterceptorProvider,
     OrderService,
     FacilityService,
-    GroupService
+    GroupService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

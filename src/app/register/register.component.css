@@ -1,0 +1,175 @@
+
+
+
+
+
+/* Reset box-shadow
+/* ------------------------------ */
+
+.btn,
+.form-control,
+.form-control:hover,
+.form-control:focus,
+.navbar-custom .dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+/* Button
+/* ------------------------------ */
+.btn {
+    padding: 14px 45px;
+}
+
+.btn-group-lg>.btn, 
+.btn-lg {
+    padding: 17px 35px;
+}
+
+.btn-primary {
+    background-color: #34495e;
+    border-color: #34495e;
+}
+
+
+/* Form Style
+/* ------------------------------ */
+.form-group {
+    margin-bottom: 30px;
+}
+.form-control {
+    height: 40px;
+    padding: 20px;
+    line-height: 25px;
+    font-weight: 300;
+    color: #202020;
+    border-radius: 0;
+}
+.form-control:focus {
+    border-color: #ff2a40;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+
+/* =-=-=-=-=-=-= Navigation =-=-=-=-=-=-= */
+
+@media(min-width:767px) {
+
+    .navbar-default .navbar-nav>li>a {
+        padding: 40px 20px;
+        -webkit-transition: padding .5s ease-in-out;
+        -moz-transition: padding .5s ease-in-out;
+        -ms-transition: padding .5s ease-in-out;
+        -o-transition: padding .5s ease-in-out;
+        transition: padding .5s ease-in-out;
+    }    
+    .navbar-default.sticky .navbar-nav>li>a {
+        padding: 20px;
+    } 
+
+    .navbar-default .navbar-brand {
+        line-height: 40px;
+        padding: 40px 15px;
+    }
+
+    .navbar-default.sticky .navbar-brand {
+        line-height: 20px;
+        padding: 15px 15px;
+    }
+
+}
+
+.navbar-nav{
+    margin:0 -15px;
+}
+
+.navbar {
+    margin: 0;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 1px 0px #BBBBBB;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+    background-color: transparent;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+
+.navbar-default .navbar-nav>li>a:focus, 
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #535b03;
+}
+
+.navbar-toggle {
+    padding: 7px;
+    margin-top: 12px;
+    border-radius: 3px;
+}
+
+.navbar-toggle .icon-bar{
+    width:15px;
+}
+
+.navbar-toggle .icon-bar+.icon-bar{
+    margin-top: 2px;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: #ff2a40;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover{
+    background-color: #ff2a40;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: #ff2a40;
+}
+
+.navbar-default .navbar-toggle:focus .icon-bar,
+.navbar-default .navbar-toggle:hover .icon-bar{
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+

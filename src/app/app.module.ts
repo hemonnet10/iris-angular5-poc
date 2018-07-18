@@ -11,7 +11,7 @@ import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/index';
 import {RegisterComponent, FarmerDetailComponent} from './register/index';
 import {FarmerDashboardComponent} from './farmer-dashboard/index';
-import {OrderComponent, CreateOrderComponent, FarmerOrderHistoryComponent, AssignOrderComponent} from './order/index';
+import {OrderComponent, CreateOrderComponent, MyfarmComponent, AssignOrderComponent} from './order/index';
 import {FacilityComponent, SchemeComponent, HelpComponent} from './facility/index';
 import {GroupComponent} from './group/index';
 import {StatusFilterPipe} from './filter/index';
@@ -45,7 +45,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     StatusFilterPipe,
     FarmerDetailComponent,
     SchemeComponent,
-    FarmerOrderHistoryComponent,
+    MyfarmComponent,
     HelpComponent,
     AssignOrderComponent,
     PreserveFoodComponent,

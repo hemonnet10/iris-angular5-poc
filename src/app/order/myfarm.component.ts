@@ -6,10 +6,10 @@ import {AlertService,UserService, OrderService } from '../_services/index';
 import { StatusFilterPipe} from '../filter/index';
 @Component({
     moduleId: module.id,
-    templateUrl: 'farmer.order.history.component.html'
+    templateUrl: 'myfarm.component.html'
 })
 
-export class FarmerOrderHistoryComponent implements OnInit {
+export class MyfarmComponent implements OnInit {
   loading = false;
     currentUser: User;
     orders: Order[] = [];

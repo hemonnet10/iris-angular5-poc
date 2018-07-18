@@ -7,7 +7,7 @@ import {HomeComponent} from './home/index';
 import {RegisterComponent, FarmerDetailComponent} from './register/index';
 import {AuthGuard, FarmerGuard, PartnerGuard, EmployeeGuard} from './_guards/index';
 import {FarmerDashboardComponent} from './farmer-dashboard/index';
-import {OrderComponent, CreateOrderComponent, FarmerOrderHistoryComponent, AssignOrderComponent} from './order/index';
+import {OrderComponent, CreateOrderComponent, MyfarmComponent, AssignOrderComponent} from './order/index';
 import {FacilityComponent, SchemeComponent, HelpComponent} from './facility/index';
 import {GroupComponent} from './group/index';
 import {PreserveFoodComponent} from './preserve-food/preserve-food.component';
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'scheme', component: SchemeComponent, canActivate: [FarmerGuard]},
   {path: 'order_search', component: CreateOrderComponent, canActivate: [PartnerGuard]},
   {path: 'farmer_detail', component: FarmerDetailComponent, canActivate: [FarmerGuard]},
-  {path: 'farmer_history', component: FarmerOrderHistoryComponent, canActivate: [FarmerGuard]},
+  {path: 'myfarm', component: MyfarmComponent, canActivate: [FarmerGuard]},
   {path: 'help', component: HelpComponent, canActivate: [FarmerGuard]},
   {path: 'assign_order', component: AssignOrderComponent, canActivate: [EmployeeGuard]},
 

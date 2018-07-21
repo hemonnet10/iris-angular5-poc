@@ -10,61 +10,63 @@
 <!-- Tab panes -->
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="home2">
+	<form name="form" (ngSubmit)= "register()" #f="ngForm">
 		<div class="row">
-			<div class="col-md-12">
-				<label>Name</label> <input type="text" class="form-control input-sm"
-					placeholder="First Name">
+			<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label>Name</label> <input type="text" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" class="form-control input-sm"
+					placeholder="First Name" required>
 			</div>
 
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
 				<label>Email</label> <input type="email"
-					class="form-control input-sm" placeholder="Email">
+					class="form-control input-sm" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email" required>
 			</div>
-			<div class="col-md-6">
-				<label>Mobile No</label> <input type="tel"
-					class="form-control input-sm" placeholder="Mobile no">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }"> 
+				<label>Mobile No</label> <input type="text"
+					class="form-control input-sm" name="mobile" id="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="Mobile no" required>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
 				<label>Create Password</label> <input type="password"
-					class="form-control input-sm" placeholder="Enter Password">
+					class="form-control input-sm" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" placeholder="Enter Password" required>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !confirm_password.valid }"> 
 				<label>Confirm Password</label> <input type="password"
-					class="form-control input-sm" placeholder="Confirm Password">
+					class="form-control input-sm" name="confirm_password" id="confirm_password" [(ngModel)]="user.confirm_password" #confirm_password="ngModel" placeholder="Confirm Password" required>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-
-
-				<label>Gender</label> <select class="form-control" name="gender">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !gender.valid }">
+				<label>Gender</label> <select class="form-control" name="gender"
+					[(ngModel)]="user.gender" #gender="ngModel"
+					required>
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 				</select>
 			</div>
-			<div class="col-md-6">
-				<label>Date of Birth</label> <input type="date" class="form-control"
-					name="date">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !DOB.valid }">
+				<label>Date of Birth</label> <input type="date" name="DOB" id="DOB" [(ngModel)]="user.DOB" #DOB="ngModel" class="form-control"
+					name="date" required>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
 				<label> Address</label> <input type="text" class="form-control"
-					placeholder=" Addresss">
+					placeholder=" Addresss" name="address" id="address" [(ngModel)]="user.address" #address="ngModel" required>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-				<label>Country</label> <select class="form-control" name="country">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !country.valid }">
+				<label>Country</label> 
+				<select class="form-control" name="country" id="country" name="country" [(ngModel)]="user.country" #country="ngModel" required>
 					<option value="India">India</option>
 					<option value="Thailand">Thailand</option>
 					<option value="Vietnam">Vietnam</option>
@@ -78,44 +80,44 @@
 
 
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
 				<label>Select State</label> <select class="form-control"
-					name="state">
+					name="state" id="state" [(ngModel)]="user.state" #state="ngModel" required>
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
 				</select>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
 				<label>Select District</label> <select class="form-control"
-					name="district">
+					name="district" id="district" [(ngModel)]="user.distict" #district="ngModel" required>
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
 				</select>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !city_viilage.valid }">
 				<label>Village/City</label> <input type="text"
-					class="form-control input-sm" placeholder="Enter Village/City">
+					class="form-control input-sm" id="city_viilage" name="city_viilage" [(ngModel)]="user.city_viilage" #city_viilage="ngModel" placeholder="Enter Village/City" required>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
-				<label>Zip/Pin Code</label> <input type="text"
-					class="form-control input-sm" placeholder="Enter Zip/Pin Code">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !pin.valid }">
+				<label>Zip/Pin Code</label> <input type="text" name="pin" id="pin" [(ngModel)]="user.pin" #pin="ngModel"
+					class="form-control input-sm" placeholder="Enter Zip/Pin Code" required>
 			</div>
-			<div class="col-md-6">
-				<label>Nearest Mandi</label> <input type="text"
-					class="form-control input-sm" placeholder="Enter Nearest Mandi">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mandi.valid }">
+				<label>Nearest Mandi</label> <input type="text" name="mandi" id="mandi" [(ngModel)]="user.mandi" #mandi="ngModel"
+					class="form-control input-sm" placeholder="Enter Nearest Mandi" required>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !farm.valid }">
 				<label>Farming Land/Field</label> <input type="number"
-					class="form-control input-sm" placeholder="Enter Land/Field Size">
+					class="form-control input-sm" placeholder="Enter Land/Field Size" id="farm" name="farm" [(ngModel)]="user.farm" #farm="ngModel" required>
 			</div>
-			<div class="col-md-6">
-				<label>Unit</label> <select class="form-control" name="landUnit">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !unit.valid }">
+				<label>Unit</label> <select class="form-control" name="landUnit" name="unit" id="unit" [(ngModel)]="user.unit" #unit="ngModel" required>
 					<option value="Square Meter">Square Meter</option>
 					<option value="Yard">Yard</option>
 					<option value="Biswa">Biswa</option>
@@ -127,10 +129,16 @@
 			</div>
 		</div>
 		<br>
-		<div class="row">
+		<div class="">
 			<button type="button" class="btn btn-primary col-md-12"
 				data-toggle="modal">Submit</button>
 		</div>
+		
+		
+		  
+		
+		</form>
+		
 	</div>
 
 	<div role="tabpanel" class="tab-pane " id="partner">
@@ -240,7 +248,7 @@
 			</div>
 		</div>
 		<br>
-		<div class="row">
+		<div class="">
 			<button type="button" class="btn btn-primary col-md-12"
 				data-toggle="modal" data-target="#exampleModal">Submit</button>
 		</div>

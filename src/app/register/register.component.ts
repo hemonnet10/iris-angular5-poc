@@ -25,6 +25,7 @@ export class RegisterComponent {
         }
 
     register() {
+		console.log("....");
         this.loading = true;
         this.userService.create(this.user)
             .subscribe(

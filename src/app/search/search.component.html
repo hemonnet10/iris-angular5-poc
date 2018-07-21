@@ -58,6 +58,9 @@
 			<td><input type="number"  [(ngModel)]="order.quantity" name="selectedVolume"
 				 max="{{searchResult.volume}}" /> out of {{searchResult.volume}} tons</td>
 		</tr>
+		<tr *ngIf="searchResults?.length<1">
+				<td colspan="5">No records found</td>
+			</tr>
 
 	</table>
 	<table class="table total_table">

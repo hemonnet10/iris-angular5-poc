@@ -1,44 +1,164 @@
-<h2>My  Farm</h2>
- <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Year</th>
-        <th>Crop</th>
-        <th>Month Show</th>
-        <th>Harvested Month</th>
-        <!-- <th>Crops Type</th> -->
-        <!-- <th>Land Size</th> -->
-        <th>Quantity</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-     <tr><td colspan="8">Current Production</td></tr>
-     
-      <tr *ngFor="let order of orders | statusFilter:'Accepted'">
-        <td>{{order.orderDate | date:'yyyy'}}</td>
-        <td>{{order.crop.cropName}}</td>
-        <td>{{order.orderDate | date:'MM'}}</td>
-        <td>{{order.orderDate | date:'MM'}}</td>
-        <!-- <td>{{order.crop.productCategory.name}}</td> -->
-        <!-- <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td> -->
-        <td>{{order.quantity}}</td>
-        <td></td>
-      </tr>
-      <tr><td colspan="8"> Last Production</td></tr>
-      
-      <tr *ngFor="let order of orders | statusFilter:'Closed'">
-        <td>{{order.orderDate  | date:'yyyy'}}</td>
-        <td>{{order.crop.cropName}}</td>
-        <td>{{order.orderDate | date:'MM'}}</td>
-        <td>{{order.orderDate | date:'MM'}}</td>
-     <!--    <td>{{order.crop.productCategory.name}}</td>
+<h2>My Farm</h2>
+<h3>
+	<a data-toggle="modal" data-target="#farmModel">Add Farm Detail</a>
+</h3>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Year</th>
+			<th>Crop</th>
+			<th>Month Show</th>
+			<th>Harvested Month</th>
+			<!-- <th>Crops Type</th> -->
+			<!-- <th>Land Size</th> -->
+			<th>Quantity</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="8">Current Production</td>
+		</tr>
+
+		<tr *ngFor="let farmerCrop of farmerCrops">
+			<td>{{farmerCrop.year}}</td>
+			<td>{{farmerCrop.crop.cropName}}</td>
+			<td>{{farmerCrop.cropShowingMonth}}</td>
+			<td>{{farmerCrop.seedGrowingMonth}}</td>
+			<!-- <td>{{order.crop.productCategory.name}}</td> -->
+			<!-- <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td> -->
+			<td>{{farmerCrop.volume}} {{farmerCrop.unit}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="8">Last Production</td>
+		</tr>
+
+		<tr *ngFor="let order of orders | statusFilter:'Closed'">
+			<td>{{order.orderDate | date:'yyyy'}}</td>
+			<td>{{order.crop.cropName}}</td>
+			<td>{{order.orderDate | date:'MM'}}</td>
+			<td>{{order.orderDate | date:'MM'}}</td>
+			<!--    <td>{{order.crop.productCategory.name}}</td>
         <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td>
-       -->  <td>{{order.quantity}}</td>
-        <td></td>
-      </tr>
-      
-     </tbody>
-  </table>
-  
-  
+       -->
+			<td>{{order.quantity}}</td>
+			<td></td>
+		</tr>
+
+	</tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="farmModel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Add</h4>
+			</div>
+			<div class="modal-body">
+					<div class="form-group">
+							<label>Choose Crop</label> 
+							<ss-multiselect-dropdown name="optionsModel" [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [settings]="mySettings"  [texts]="myTexts" ></ss-multiselect-dropdown>	   
+						</div>
+						
+				<form name="farmForm" (ngSubmit)="f.form.valid && saveFarm()" #f="ngForm" novalidate>
+						<div class="form-group">
+								<input type="hidden" name="cropId" [(ngModel)]="farmerCrop.crop.id" #cropId="ngModel" class="form-control">
+								
+							<div *ngIf="f.submitted && !cropId.valid" class="help-block">Choose Crop to proceed</div>
+								</div>
+							
+					<div class="form-group">
+						<label>Volume</label> <input type="number" class="form-control"
+						[(ngModel)]="farmerCrop.volume" name="voloum" placeholder="Enter Volume" required>
+					</div>
+					<div class="form-group">
+						<label>Volume Unit</label> <input type="text" class="form-control"
+						[(ngModel)]="farmerCrop.unit" name="unit" value="Quintal" disabled="disabled">
+					</div>
+					<div class="form-group">
+						<label>Harvested Month</label> <select
+							class="form-control" [(ngModel)]="farmerCrop.seedGrowingMonth" name="seedGrowingMonth"
+							required>
+							<option value="Jan">Jan</option>
+							 <option value="Feb">Feb</option>
+							 <option value="Mar">Mar</option>
+							 <option value="Apr">Apr</option>
+							 <option value="May">May</option>
+							 <option value="Jun">Jun</option>
+							 <option value="Jul">Jul</option>
+							 <option value="Aug">Aug</option>
+							 <option value="Sep">Sep</option>
+							 <option value="Oct">Oct</option>
+							 <option value="Nov">Nov</option>
+							 <option value="Dec">Dec</option>
+							 </select>
+					</div>
+					<div class="form-group">
+						<label>Showing Month</label> <select
+							class="form-control" [(ngModel)]="farmerCrop.cropShowingMonth"
+							 name="cropShowingMonth" required>
+							 <option value="Jan">Jan</option>
+							 <option value="Feb">Feb</option>
+							 <option value="Mar">Mar</option>
+							 <option value="Apr">Apr</option>
+							 <option value="May">May</option>
+							 <option value="Jun">Jun</option>
+							 <option value="Jul">Jul</option>
+							 <option value="Aug">Aug</option>
+							 <option value="Sep">Sep</option>
+							 <option value="Oct">Oct</option>
+							 <option value="Nov">Nov</option>
+							 <option value="Dec">Dec</option>
+							</select>
+					</div>
+					<div class="form-group">
+						<label>Season</label> <input type="text" class="form-control"
+						[(ngModel)]="farmerCrop.season" name="season" placeholder="Enter Season" required>
+					</div>
+					<div class="form-group">
+						<label>Year</label> <select class="form-control"
+						[(ngModel)]="farmerCrop.year" name="year"
+							 required>
+							<option value="2016">2016</option>
+							 <option value="2017">2017</option>
+							 <option value="2018">2018</option>
+							 <option value="2019">2019</option>
+							 <option value="2020">2020</option>
+							 </select>
+					</div>
+					<div class="form-group">
+						<label>Field Size</label> <input type="text" class="form-control"
+							[(ngModel)]="farmerCrop.fieldSize" name="fieldSize"
+							placeholder="Enter Harvested Month" required>
+					</div>
+					<div class="form-group">
+						<label>Field Unit</label> 
+						<select
+					class="form-control" name="landUnit"
+					[(ngModel)]="farmerCrop.fieldUnit" #fieldUnit="ngModel"
+					required>
+					<option value="Square Meter">Square Meter</option>
+					<option value="Yard">Yard</option>
+					<option value="Biswa">Biswa</option>
+					<option value="Bigha">Bigha</option>
+					<option value="Acres">Acres</option>
+					<option value="Hectares">Hectares</option>
+					<option value="Other">Other</option>
+				</select>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

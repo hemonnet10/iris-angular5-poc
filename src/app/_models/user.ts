@@ -8,29 +8,29 @@ export class User {
     mobile: string;
     role: Role;
     authId: string;
-	confirmpasswordR: string;
-	DOB:string;
-	address:string;
+	confirmPassword: string;
+	dob:string;
+	village:string;
 	country:string;
 	state:string;
 	district:string;
-	city_viilage:string;
-	pin:number;
-	nearsestmandi:string;
-	farm:string;
+	city:string;
+	pincode:number;
+	//nearsestMandi:string;
+	//farm:string;
 	unit:string;
-	companyname:string;
-	companytype:string;
-	personName:string;
+	companyName:string;
+	companyType:string;
+	//personName:string;
 	cin:string;
-	companyaddress:string;
-	villagecity:string;
-	distict:string;
-	zip:string;
-	confirmpassword:string;
-	passwordfarm:string;
-	Designation:string;
-	mobileNO:string;
+	//companyaddress:string;
+	//villagecity:string;
+	//distict:string;
+	//zip:string;
+	//confirmpassword:string;
+	//passwordfarm:string;
+	designation:string;
+	//mobileNO:string;
 
 	
 	

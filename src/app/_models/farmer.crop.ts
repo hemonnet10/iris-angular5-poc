@@ -7,4 +7,11 @@ export class FarmerCrop {
   farmerId: number;
   volume: number;
   price: number;
+  unit: string='Quintal';
+  seedGrowingMonth: string;
+  cropShowingMonth: string;
+  season: string;
+  year: string;
+  fieldSize: number;
+  fieldUnit: string;
 }

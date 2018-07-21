@@ -4,7 +4,7 @@
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
             <label for="name">Name</label>
             <input type="text" class="form-control" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" required />
-            <div *ngIf="f.submitted && !name.valid" class="help-block">First Name is required</div>
+            <div *ngIf="f.submitted && !name.valid" class="help-block">First Name is required </div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
             <label for="mobile">Mobile No</label>
@@ -14,7 +14,7 @@
        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !role.valid }">
               
           <label>     <input [(ngModel)]="user.role.id" name="role" value="1" #role="ngModel" type="radio" required/>Farmer</label>
-			<label>        <input [(ngModel)]="user.role.id" name="role" value="2" #role="ngModel" type="radio" required/>Partner</label>
+			<label> <input [(ngModel)]="user.role.id" name="role" value="2" #role="ngModel" type="radio" required/>Partner</label>
               
          <div *ngIf="f.submitted && !role.valid" class="help-block">Type is required</div>
 		

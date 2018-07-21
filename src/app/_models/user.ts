@@ -8,7 +8,7 @@ export class User {
     mobile: string;
     role: Role;
     authId: string;
-	confirm_password: string;
+	confirmpasswordR: string;
 	DOB:string;
 	address:string;
 	country:string;
@@ -16,9 +16,22 @@ export class User {
 	district:string;
 	city_viilage:string;
 	pin:number;
-	mandi:string;
+	nearsestmandi:string;
 	farm:string;
 	unit:string;
+	companyname:string;
+	companytype:string;
+	personName:string;
+	cin:string;
+	companyaddress:string;
+	villagecity:string;
+	distict:string;
+	zip:string;
+	confirmpassword:string;
+	passwordfarm:string;
+	Designation:string;
+	mobileNO:string;
+
 	
 	
 }

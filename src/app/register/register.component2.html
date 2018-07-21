@@ -15,44 +15,66 @@
 			<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
 				<label>Name</label> <input type="text" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" class="form-control input-sm"
 					placeholder="First Name" required>
+		<div *ngIf="f.submitted && !name.valid" class="help-block">First Name is required</div>
+
 			</div>
 
 		</div>
 
 		<div class="row">
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-				<label>Email</label> <input type="email"
+				<label>Email</label> <input type="text"
 					class="form-control input-sm" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email" required>
+		<div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+	
 			</div>
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }"> 
 				<label>Mobile No</label> <input type="text"
 					class="form-control input-sm" name="mobile" id="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="Mobile no" required>
+   <div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile is required</div>
+			
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row">	
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-				<label>Create Password</label> <input type="password"
+				<label>Create Password</label> <input type="passwpasswordord"
 					class="form-control input-sm" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" placeholder="Enter Password" required>
-			</div>
-			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !confirm_password.valid }"> 
+		
+   <div *ngIf="f.submitted && !password.valid" class="help-block">password is required</div>
+
+
+		</div>
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !confirmpasswordR.valid }"> 
 				<label>Confirm Password</label> <input type="password"
-					class="form-control input-sm" name="confirm_password" id="confirm_password" [(ngModel)]="user.confirm_password" #confirm_password="ngModel" placeholder="Confirm Password" required>
-			</div>
+					class="form-control input-sm" name="confirmpasswordR" id="confirmpasswordR" [(ngModel)]="user.confirmpasswordR" #confirmpasswordR="ngModel" placeholder="Confirm Password" required>
+   <div *ngIf="f.submitted && !confirmpasswordR.valid" class="help-block">Mobile is required</div>
+		
+
+		</div>
 		</div>
 
+		
 		<div class="row">
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !gender.valid }">
 				<label>Gender</label> <select class="form-control" name="gender"
 					[(ngModel)]="user.gender" #gender="ngModel"
 					required>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
+					<option value="M">Male</option>
+					<option value="S">Female</option>
+					
+					
 				</select>
+				   <div *ngIf="f.submitted && !gender.valid" class="help-block">select gender</div>					
+
 			</div>
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !DOB.valid }">
 				<label>Date of Birth</label> <input type="date" name="DOB" id="DOB" [(ngModel)]="user.DOB" #DOB="ngModel" class="form-control"
 					name="date" required>
+   <div *ngIf="f.submitted && !DOB.valid" class="help-block">DOB is required</div>	
+   
+			
+			
 			</div>
 		</div>
 
@@ -60,13 +82,16 @@
 			<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
 				<label> Address</label> <input type="text" class="form-control"
 					placeholder=" Addresss" name="address" id="address" [(ngModel)]="user.address" #address="ngModel" required>
+	   <div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>	
+		
+			
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !country.valid }">
 				<label>Country</label> 
-				<select class="form-control" name="country" id="country" name="country" [(ngModel)]="user.country" #country="ngModel" required>
+				<select class="form-control" name="countryName" id="countryName" [(ngModel)]="user.countryName" #countryName="ngModel" required>
 					<option value="India">India</option>
 					<option value="Thailand">Thailand</option>
 					<option value="Vietnam">Vietnam</option>
@@ -77,6 +102,7 @@
 					<option value="Combodia">Combodia</option>
 					<option value="Taiwan">Taiwan</option>
 				</select>
+	   <div *ngIf="f.submitted && !country.valid" class="help-block">country is required</div>	
 
 
 			</div>
@@ -85,37 +111,55 @@
 					name="state" id="state" [(ngModel)]="user.state" #state="ngModel" required>
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
+				
 				</select>
+				<div *ngIf="f.submitted && !state.valid" class="help-block">state is required</div>	
+
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !district.valid }">
 				<label>Select District</label> <select class="form-control"
 					name="district" id="district" [(ngModel)]="user.distict" #district="ngModel" required>
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
 				</select>
+								<div *ngIf="f.submitted && !district.valid" class="help-block">Distict is required</div>	
+
 			</div>
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !city_viilage.valid }">
-				<label>Village/City</label> <input type="text"
+				<label>Village/City</label> 
+				
+				<input type="text"
 					class="form-control input-sm" id="city_viilage" name="city_viilage" [(ngModel)]="user.city_viilage" #city_viilage="ngModel" placeholder="Enter Village/City" required>
+									<div *ngIf="f.submitted && !city_viilage.valid" class="help-block">city/village is required</div>	
+		
+			
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !pin.valid }">
 				<label>Zip/Pin Code</label> <input type="text" name="pin" id="pin" [(ngModel)]="user.pin" #pin="ngModel"
 					class="form-control input-sm" placeholder="Enter Zip/Pin Code" required>
+					
+								<div *ngIf="f.submitted && !district.valid" class="help-block">Zip/Pin is required</div>	
+					
 			</div>
-			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mandi.valid }">
-				<label>Nearest Mandi</label> <input type="text" name="mandi" id="mandi" [(ngModel)]="user.mandi" #mandi="ngModel"
-					class="form-control input-sm" placeholder="Enter Nearest Mandi" required>
+			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !nearsestmandi.valid }">
+				<label>Nearest Mandi</label> <input type="text" name="nearsestmandi" id="nearsestmandi" [(ngModel)]="user.nearsestmandi" #nearsestmandi="ngModel"
+					class="form-control input-sm" placeholder="Enter Nearest nearsestmandi" required>
+					<div *ngIf="f.submitted && !district.valid" class="help-block">Zip/Pin is required</div>	
+
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !farm.valid }">
 				<label>Farming Land/Field</label> <input type="number"
 					class="form-control input-sm" placeholder="Enter Land/Field Size" id="farm" name="farm" [(ngModel)]="user.farm" #farm="ngModel" required>
-			</div>
+	<div *ngIf="f.submitted && !farm.valid" class="help-block">Land/Field is required</div>	
+
+
+		</div>
 			<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !unit.valid }">
 				<label>Unit</label> <select class="form-control" name="landUnit" name="unit" id="unit" [(ngModel)]="user.unit" #unit="ngModel" required>
 					<option value="Square Meter">Square Meter</option>
@@ -126,6 +170,8 @@
 					<option value="Hectares">Hectares</option>
 					<option value="Other">Other</option>
 				</select>
+				<div *ngIf="f.submitted && !unit.valid" class="help-block">Unit is required</div>	
+
 			</div>
 		</div>
 		<br>
@@ -142,38 +188,52 @@
 	</div>
 
 	<div role="tabpanel" class="tab-pane " id="partner">
-		<div class="row">
+	<form name="form" (ngSubmit)= "f.form.valid && register()" #f="ngForm" novalidate>
+		<div class="row" [ngClass]="{ 'has-error': f.submitted && !companyname.valid }">
 			<div class="col-md-12">
 				<label>Company Name</label> <input type="text"
-					class="form-control input-sm" placeholder="Company Name">
-			</div>
+					class="form-control input-sm"  name="companyname" id="companyname" [(ngModel)]="user.companyname" #companyname="ngModel"  placeholder="Company Name">
+					<div *ngIf="f.submitted && !companyname.valid" class="help-block">Company name is required</div>	
+			
+			
+				</div>
 
 		</div>
 
-		<div class="row">
+		<div class="row" [ngClass]="{'has-error':f.submitted && !companytype.valid}">
 			<div class="col-md-6">
 				<label>Company Type</label> <select class="form-control"
-					style="padding: 6px 12px;">
+					style="padding: 6px 12px;" name="companytype" id="companytype" [(ngModel)]="user.companytype" #companytype="ngModel">
 					<option hidden="true" selected>Choose Option</option>
 					<option>Private Limited</option>
 					<option>LLP</option>
 				</select>
+				<div *ngIf="f.submitted && !companytype.valid" class="help-block">Company type is required</div>	
+
+
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && !cin.valid}">
 				<label>CIN</label> <input type="text" class="form-control input-sm"
-					placeholder="CIN">
+					placeholder="CIN" name="cin" id="cin" [(ngModel)]="user.cin" #cin="ngModel">
+					<div *ngIf="f.submitted && !cin.valid" class="help-block">CIN is required</div>	
+
+
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12"[ngClass]="{'has-error':f.submitted && ! companyaddress.valid}">
 				<label>Company Address</label> <input type="text"
-					class="form-control" placeholder="Company Addresss">
-			</div>
+					class="form-control" placeholder="Company Addresss" name="companyaddress" id="companyaddress" [(ngModel)]="user.companyaddress" #companyaddress="ngModel">
+			
+					<div *ngIf="f.submitted && !companyaddress.valid" class="help-block">Company address is required</div>	
+			
+			
+				</div>
 
 		</div>
 		<div class="row">
-			<div class="col-md-6">
-				<label>Country</label> <select class="form-control" name="country">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! country.valid}">
+				<label>Country</label> <select class="form-control" name="country" id="country" [(ngModel)]="user.country" #country="ngModel">
 					<option value="India">India</option>
 					<option value="Thailand">Thailand</option>
 					<option value="Vietnam">Vietnam</option>
@@ -184,75 +244,104 @@
 					<option value="Combodia">Combodia</option>
 					<option value="Taiwan">Taiwan</option>
 				</select>
+				<div *ngIf="f.submitted && !country.valid" class="help-block">Country is required</div>	
+
+
+
+
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! stateName.valid}">
 				<label>Select State</label> <select class="form-control"
-					name="state">
+				name="stateName" id="stateName" [(ngModel)]="user.stateName" #stateName="ngModel">
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
 				</select>
+				<div *ngIf="f.submitted && !stateName.valid" class="help-block">State is required</div>	
+
+
 			</div>
 		</div>
 		<div class="row">
 
-			<div class="col-md-12">
+			<div class="col-md-12" [ngClass]="{'has-error':f.submitted && ! villagecity.valid}">
 				<label>Village/City</label> <input type="text"
-					class="form-control input-sm" placeholder="Enter Village/City">
-			</div>
+					class="form-control input-sm" placeholder="Enter Village/City" name="villagecity" id="villagecity" [(ngModel)]="user.villagecity" #villagecity="ngModel">
+			
+					<div *ngIf="f.submitted && !villagecity.valid" class="help-block">Village/City is required</div>	
+			
+				</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6"  [ngClass]="{'has-error':f.submitted && ! distict.valid}">
 				<label>Select District</label> <select class="form-control"
-					name="district">
+					name="district" id="distict" [(ngModel)]="user.distict" #distict="ngModel">
 					<option value="Delhi">Delhi</option>
 					<option value="UP">UP</option>
 				</select>
+				<div *ngIf="f.submitted && !distict.valid" class="help-block">Distict is required</div>	
+
+
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! zip.valid}">
 				<label>Zip/Pin Code</label> <input type="text"
-					class="form-control input-sm" placeholder="Enter Zip/Pin Code">
-			</div>
+					class="form-control input-sm" placeholder="Enter Zip/Pin Code" name="zip" id="zip"[(ngModel)]="user.zip" #zip="ngModel">
+					<div *ngIf="f.submitted && !zip.valid" class="help-block">Pin Code is required</div>	
+		
+			
+				</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! personName.valid}">
 				<label>Concerned Person Name</label> <input type="text"
-					class="form-control input-sm" placeholder="Concerned Person Name">
-			</div>
-			<div class="col-md-6">
+					class="form-control input-sm" placeholder="Concerned Person Name" name="personName" id="personName" [(ngModel)]="user.personName" #personName="ngModel">
+					<div *ngIf="f.submitted && !personName.valid" class="help-block">Person name is required</div>	
+			
+				</div>
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! Designation.valid}">
 				<label>Designation</label> <input type="text"
-					class="form-control input-sm" placeholder="Designation">
-			</div>
+					class="form-control input-sm" placeholder="Designation" name="Designation" id="Designation" [(ngModel)]="user.Designation" #Designation="ngModel">
+					<div *ngIf="f.submitted && !Designation.valid" class="help-block">Designation is required</div>	
+		
+			
+				</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! emailId.valid}">
 				<label>Email-Id</label> <input type="email"
-					class="form-control input-sm" placeholder="Email-Id">
-			</div>
-			<div class="col-md-6">
+					class="form-control input-sm" placeholder="Email-Id" name="emailId" id="emailId" [(ngModel)]="user.emailId" #emailId="ngModel">
+					<div *ngIf="f.submitted && !emailId.valid" class="help-block">EmailId is required</div>	
+	
+			
+				</div>
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! mobileNO.valid}">
 				<label>Mobile No</label> <input type="tel"
-					class="form-control input-sm" placeholder="Mobile No">
-			</div>
+					class="form-control input-sm" placeholder="Mobile No" name="mobileNO" id="mobileNO" [(ngModel)]="user.mobileNO" #mobileNO="ngModel">
+					<div *ngIf="f.submitted && !mobileNO.valid" class="help-block">Mobile is required</div>	
+
+				</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! passwordfarm.valid}">
 				<label>Create Password</label> <input type="password"
-					class="form-control input-sm" placeholder="Enter Password">
+					class="form-control input-sm" placeholder="Enter Password" name="passwordfarm" id="passwordfarm" [(ngModel)]="user.passwordfarm" #passwordfarm="ngModel">
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" [ngClass]="{'has-error':f.submitted && ! confirmpassword.valid}">
 				<label>Confirm Password</label> <input type="password"
-					class="form-control input-sm" placeholder="Confirm Password">
-			</div>
+					class="form-control input-sm" placeholder="Confirm Password" name="confirmpassword" id="confirmpassword" [(ngModel)]="user.confirm_password" #confirmpassword="ngModel">
+					<div *ngIf="f.submitted && !confirmpassword.valid" class="help-block">confirm password is required</div>	
+		
+				</div>
 		</div>
 		<br>
 		<div class="">
-			<button type="button" class="btn btn-primary col-md-12"
+			<button type="submit" class="btn btn-primary col-md-12"
 				data-toggle="modal" data-target="#exampleModal">Submit</button>
 		</div>
-
+</form>
 	</div>
 </div>
 

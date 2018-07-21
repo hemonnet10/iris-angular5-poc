@@ -16,7 +16,7 @@ export class User {
 	district:string;
 	city_viilage:string;
 	pin:number;
-	mandi:strike;
+	mandi:string;
 	farm:string;
 	unit:string;
 	

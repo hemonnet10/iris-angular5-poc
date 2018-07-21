@@ -10,7 +10,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="home2">
-	<form name="form" (ngSubmit)= "register()" #f="ngForm">
+	<form name="form" (ngSubmit)= "f.form.valid && register()" #f="ngForm">
 		<div class="row">
 			<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
 				<label>Name</label> <input type="text" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" class="form-control input-sm"
@@ -130,7 +130,7 @@
 		</div>
 		<br>
 		<div class="">
-			<button type="button" class="btn btn-primary col-md-12"
+			<button type="submit" class="btn btn-primary col-md-12"
 				data-toggle="modal">Submit</button>
 		</div>
 		

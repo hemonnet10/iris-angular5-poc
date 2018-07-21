@@ -77,7 +77,7 @@
 				</div>
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !DOB.valid }">
 					<label>Date of Birth</label>
-					<input type="date" name="DOB" id="DOB" [(ngModel)]="user.DOB" #DOB="ngModel" class="form-control" name="date" required>
+					<input type="date" name="DOB" id="DOB" [(ngModel)]="user.dob" #DOB="ngModel" class="form-control" name="date" required>
 					<div *ngIf="f.submitted && !DOB.valid" class="help-block">DOB is required</div>
 
 
@@ -136,7 +136,7 @@
 			<div class="row">
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !district.valid }">
 					<label>Select District</label>
-					<select class="form-control" style="padding: 6px 12px;" name="district" id="district" [(ngModel)]="user.distict" #district="ngModel" required>
+					<select class="form-control" style="padding: 6px 12px;" name="district" id="district" [(ngModel)]="user.district" #district="ngModel" required>
 						<option value="Delhi">Delhi</option>
 						<option value="UP">UP</option>
 					</select>
@@ -351,7 +351,7 @@
 				</div>
 				<div class="col-md-6" [ngClass]="{'has-error':f2.submitted && ! mobileNO.valid}">
 					<label>Mobile No</label>
-					<input type="tel" class="form-control input-sm" placeholder="Mobile No" name="mobileNO" id="mobileNO" [(ngModel)]="partner.mobileNo"
+					<input type="tel" class="form-control input-sm" placeholder="Mobile No" name="mobileNO" id="mobileNO" [(ngModel)]="partner.mobile"
 					 #mobileNO="ngModel">
 					<div *ngIf="f2.submitted && !mobileNO.valid" class="help-block">Mobile is required</div>
 

@@ -86,7 +86,8 @@ export class MyfarmComponent implements OnInit {
     }
 
 
-    private saveFarm(){
+    public saveFarm(){
+        let jQuery:any;
         this.farmerCrop.farmerId=this.currentUser.id;
         let farmerCrops=[];
         farmerCrops.push(this.farmerCrop); 
@@ -114,4 +115,6 @@ export class MyfarmComponent implements OnInit {
         });
     
     
+}
+
 }

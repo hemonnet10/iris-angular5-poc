@@ -34,7 +34,7 @@
 			<td colspan="8">Last Production</td>
 		</tr>
 
-		<tr *ngFor="let order of orders | statusFilter:'Closed'">
+		<!--tr *ngFor="let order of orders | statusFilter:'Closed'">
 			<td>{{order.orderDate | date:'yyyy'}}</td>
 			<td>{{order.crop.cropName}}</td>
 			<td>{{order.orderDate | date:'MM'}}</td>
@@ -42,9 +42,9 @@
 			<!--    <td>{{order.crop.productCategory.name}}</td>
         <td>{{order.orderReceivedBy.farmerDetail.landSize}} {{order.orderReceivedBy.farmerDetail.landUnit}}</td>
        -->
-			<td>{{order.quantity}}</td>
+			<!--td>{{order.quantity}}</td>
 			<td></td>
-		</tr>
+		</tr-->
 
 	</tbody>
 </table>

@@ -2,7 +2,7 @@
 
 
 <section id="body">
-	<div id="google_translate_element">Google Language converter</div>
+	<div id="google_translate_element" class="">Google Language converter</div>
 	<aside class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 
 		<h1 class="hidden-sm hidden-xs" *ngIf="getRole()!=null">
@@ -66,6 +66,9 @@
 								routerLinkActive="active-link">Scheme</a></li>
 							<li><a routerLink="/search"
 								routerLinkActive="active-link">Search</a></li>
+                                    
+
+						
 							<li *ngIf="getRole()!=null"><a routerLink="/login"
 								routerLinkActive="active-link">Logout</a></li>
 							<li *ngIf="getRole()==null"><a routerLink="/login"
@@ -73,6 +76,9 @@
 
 						</ul>
 					</nav>
+					<!--<div id="google_translate_element" class="hidden-lg hidden-md">Google Language converter</div>
+
+					-->
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,3 @@
-import { User} from '../_models/index';
 
 export class FarmerDetail {
     id: number;

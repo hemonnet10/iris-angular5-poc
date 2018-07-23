@@ -15,7 +15,7 @@ body {
 	padding:0;
 }
 
-
+ 
 
 code, blockquote {
 	display:block;
@@ -519,7 +519,7 @@ margin-top:30px;
 }
 #google_translate_element{
 	    display: inline-block !important;
-    z-index: 2000;
+    z-index: 1 !important;
     width: 160px !important;
     /* float: right; */
     font-size: 11px !important;

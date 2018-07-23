@@ -1,13 +1,13 @@
-import {FarmerCrop} from '../_models/farmer.crop';
-import {Router, ActivatedRoute} from '@angular/router';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { FarmerCrop } from '../_models/farmer.crop';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {User, Order, Category, Crop, SearchInput} from '../_models/index';
+import { User, Order, Category, Crop, SearchInput, Country, State, District } from '../_models/index';
 import { SearchResult } from '../_models/search.result';
-import {AlertService, UserService, OrderService} from '../_services/index';
-import {FormBuilder, Form} from '@angular/forms';
-import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from 'angular-4-dropdown-multiselect';
-import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+import { AlertService, UserService, OrderService, MasterDataService } from '../_services/index';
+import { FormBuilder, Form } from '@angular/forms';
+import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-4-dropdown-multiselect';
+import { CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent } from "ng-auto-complete";
 
 
 @Component({
@@ -19,11 +19,16 @@ export class SearchComponent implements OnInit {
   searchInput: SearchInput;
   searchResults: SearchResult[];
   selectedCropId: number;
-  selectedVolume:number;
+  selectedVolume: number;
 
   loading = false;
   optionsModel: IMultiSelectOption;
   myOptions: IMultiSelectOption[];
+  countries: Country[]=[];
+  states: State[]=[];
+  districts: District[]=[];
+
+
 
   // Settings configuration
   mySettings: IMultiSelectSettings = {
@@ -57,12 +62,15 @@ export class SearchComponent implements OnInit {
   cropId: number;
   categories: Category[];
   crops: Crop[];
+
+
   constructor(
     private userService: UserService,
     private orderService: OrderService,
     private alertService: AlertService,
     private route: ActivatedRoute,
     private router: Router,
+    private masterDataService: MasterDataService,
     private formBuilder: FormBuilder) {
     this.searchInput = userService.searchInput;
     if (this.searchInput == null) {
@@ -99,7 +107,7 @@ export class SearchComponent implements OnInit {
     this.searchInput = this.userService.searchInput;
     this.selectedCropId = this.userService.selectedCropId;
     this.getCropByCategory(3);
-
+    this.getAllCountries();
 
   }
   search() {
@@ -115,7 +123,7 @@ export class SearchComponent implements OnInit {
   public createOrder() {
     this.userService.selectedCropId = this.selectedCropId;
     if (this.currentUser == null || this.currentUser.role == null) {
-      this.router.navigate(['login'], {queryParams: {returnUrl: 'search'}});
+      this.router.navigate(['login'], { queryParams: { returnUrl: 'search' } });
       return;
     }
     this.order.crop.id = +this.selectedCropId;
@@ -131,21 +139,35 @@ export class SearchComponent implements OnInit {
   }
 
   private getAllCategories() {
-    this.orderService.getAllCategories().subscribe(categories => {this.categories = categories;});
+    this.orderService.getAllCategories().subscribe(categories => { this.categories = categories; });
   }
 
   private getCropByCategory(categoryId: number) {
     this.orderService.getCropByCategory(categoryId).subscribe(crops => {
       this.crops = crops;
       for (let crop1 of this.crops) {
-        this.groupCrops.push({id: crop1.id, name: crop1.cropName});
+        this.groupCrops.push({ id: crop1.id, name: crop1.cropName });
       }
       this.myOptions = this.groupCrops;
     });
 
 
   }
-
+  private getAllCountries() {
+    this.masterDataService.getAllCountries().subscribe(countries => { this.countries = countries; });
+  }
+  filterForState(filterVal: any) {
+    if (filterVal == "0")
+      console.log(0);
+    else
+      this.masterDataService.getAllStates(filterVal).subscribe(states => { this.states = states; });
+  }
+  filterForDistrict(filterVal: any) {
+    if (filterVal == "0")
+      console.log(0);
+    else
+      this.masterDataService.getAllDistricts(filterVal).subscribe(districts => { this.districts = districts; });
+  }
 
 
 }

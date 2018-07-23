@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {AlertComponent} from './_directives/index';
 import {AuthGuard, FarmerGuard, PartnerGuard, EmployeeGuard} from './_guards/index';
 import {JwtInterceptorProvider, ErrorInterceptorProvider} from './_helpers/index';
-import {AlertService, AuthenticationService, UserService, OrderService, FacilityService, GroupService} from './_services/index';
+import {AlertService, AuthenticationService, UserService, OrderService, FacilityService, GroupService, MasterDataService} from './_services/index';
 import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/index';
 import {RegisterComponent, FarmerDetailComponent} from './register/index';
@@ -62,6 +62,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     JwtInterceptorProvider,
     ErrorInterceptorProvider,
     OrderService,
+    MasterDataService,
     FacilityService,
     GroupService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}

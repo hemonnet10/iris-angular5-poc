@@ -1,8 +1,8 @@
 ﻿import {Component, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {AlertService, UserService, OrderService} from '../_services/index';
-import {User, Role, FarmerDetail, Category, Crop, FarmerCrop} from '../_models/index';
+import {AlertService, UserService, OrderService} from '../_services';
+import {User, Role, FarmerDetail, Category, Crop, FarmerCrop} from '../_models';
 import {FormGroup, FormArray} from "@angular/forms";
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from 'ng-auto-complete';
 
@@ -92,16 +92,16 @@ export class FarmerDetailComponent {
     }
 
 
-    this.userService.saveFarmerCrops(this.farmerCrops)
-      .subscribe(
-      data => {
-        this.alertService.success('Crops Updated successfully', true);
-        this.loading = false;
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
-      });
+    // this.userService.saveFarmerCrops(this.farmerCrops)
+    //   .subscribe(
+    //   data => {
+    //     this.alertService.success('Crops Updated successfully', true);
+    //     this.loading = false;
+    //   },
+    //   error => {
+    //     this.alertService.error(error);
+    //     this.loading = false;
+    //   });
 
 
 

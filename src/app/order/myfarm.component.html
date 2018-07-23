@@ -62,6 +62,13 @@
 				<h4 class="modal-title">Add</h4>
 			</div>
 			<div class="modal-body">
+					<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cid.valid }">
+							<label for="cid">Select Category</label>
+							<select class="form-control" name="cid" id="cid" [(ngModel)]="categoryId" (change)="filterForCatergory($event.target.value)" #cid="ngModel" required >
+								<option *ngFor="let category of categories" value={{category.id}}>{{category.name}}
+							</select>
+							<div *ngIf="f.submitted && !cid.valid" class="help-block">Choose Crop Category</div>
+						</div> 
 					<div class="form-group">
 							<label>Choose Crop</label> 
 							<ss-multiselect-dropdown name="optionsModel" [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [settings]="mySettings"  [texts]="myTexts" ></ss-multiselect-dropdown>	   
@@ -118,10 +125,10 @@
 							 <option value="Dec">Dec</option>
 							</select>
 					</div>
-					<div class="form-group">
+					<!-- div class="form-group">
 						<label>Season</label> <input type="text" class="form-control"
 						[(ngModel)]="farmerCrop.season" name="season" placeholder="Enter Season" required>
-					</div>
+					</div-->
 					<div class="form-group">
 						<label>Year</label> <select class="form-control"
 						[(ngModel)]="farmerCrop.year" name="year"

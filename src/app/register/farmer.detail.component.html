@@ -106,10 +106,14 @@
 					<option value="Animal Care">Animal Care</option>
 					<option value="Landlord">Landlord</option>
 					<option value="Fisherman">Fisherman</option>
-					<option value="Other">Other</option>
-				</select> <!-- <input type="text" class="form-control" name="profession"
+					<option value="">Other</option>
+				</select>  <input type="text" class="form-control" name="profession" 
+				*ngIf="farmerDetail.profession!=null && farmerDetail.profession!='Farming' &&
+			 farmerDetail.profession!='Pet Care' && farmerDetail.profession!='Milk Dairy' 
+			 && farmerDetail.profession!='Animal Care' && farmerDetail.profession!='Landlord' 
+			 && farmerDetail.profession!='Fisherman'"
 					[(ngModel)]="farmerDetail.profession" #profession="ngModel"
-					required /> -->
+					required /> 
 				<div *ngIf="f.submitted && !profession.valid" class="help-block">Profession
 					is required</div>
 			</div>
@@ -180,7 +184,7 @@
 				<div *ngIf="f.submitted && !assetType.valid" class="help-block">Asset
 					Type is required</div>
 			</div>
-			<div class="form-group col-xs-6"
+			<div class="form-group col-xs-6" *ngIf="farmerDetail.isAssetAvailable=='Yes'"
 				[ngClass]="{ 'has-error': f.submitted && !asset.valid }">
 				<label for="asset">Name of Asset</label> <input type="text"
 					class="form-control" name="asset" [(ngModel)]="farmerDetail.asset"
@@ -188,7 +192,7 @@
 				<div *ngIf="f.submitted && !asset.valid" class="help-block">Name
 					of Asset is required</div>
 			</div>
-
+			<div class="form-group col-xs-6" *ngIf="farmerDetail.isAssetAvailable=='Yes'"></div>
 
 			<!--    <ss-multiselect-dropdown [options]="selectedCrops" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
       -->
@@ -207,7 +211,8 @@
          <span *ngFor="let crop of selectedCrops; let i = index">
          {{crop.cropName}}<a (click)="removeSelected(i)"><i class="fa fa-close fa-2x" style="padding-right: 2px">X</i></a> 
          </span>
-      </div> -->
+	  </div> -->
+	 
 			<div class="form-group col-xs-6">
 				<button [disabled]="loading" class="btn btn-primary">Update
 					Profile</button>

@@ -22,6 +22,8 @@ export class MyfarmComponent implements OnInit {
     optionsModel: IMultiSelectOption;
     myOptions: IMultiSelectOption[] = [];
     cropId: number;
+    categoryId: number;
+
     categories: Category[];
     crops: Crop[];
 
@@ -58,7 +60,8 @@ export class MyfarmComponent implements OnInit {
         private router: Router,
         private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.getCropByCategory(17);
+        this.getAllCategories();
+        // this.getCropByCategory(17);
 
 
     }
@@ -111,6 +114,7 @@ export class MyfarmComponent implements OnInit {
         this.userService.getFarmerCrops(userId).subscribe(farmerCrops => { this.farmerCrops = farmerCrops; });
     }
     private getCropByCategory(categoryId: number) {
+        this.groupCrops = [];
         this.orderService.getCropByCategory(categoryId).subscribe(crops => {
             this.crops = crops;
             for (let crop1 of this.crops) {
@@ -121,5 +125,13 @@ export class MyfarmComponent implements OnInit {
 
 
     }
-
+    private getAllCategories() {
+        this.orderService.getAllCategories().subscribe(categories => { this.categories = categories; });
+    }
+    filterForCatergory(filterVal: any) {
+        if (filterVal == "0")
+            console.log(0);
+        else
+            this.getCropByCategory(filterVal);
+    }
 }

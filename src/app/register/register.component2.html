@@ -35,9 +35,9 @@
 				</div>
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
 					<label>Mobile No</label>
-					<input type="text" class="form-control input-sm" name="mobile" id="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="Mobile no"
+					<input type="tel" pattern="[0-9]{10}" class="form-control input-sm" name="mobile" id="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="Mobile no"
 					 required>
-					<div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile is required</div>
+					<div *ngIf="f.submitted && !mobile.valid" class="help-block">Valid Mobile is required</div>
 
 				</div>
 			</div>
@@ -107,16 +107,10 @@
 			<div class="row">
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !country.valid }">
 					<label>Country</label>
-					<select class="form-control" style="padding: 6px 12px;" name="countryName" id="countryName" [(ngModel)]="user.country" #countryName="ngModel" required>
-						<option value="India">India</option>
-						<option value="Thailand">Thailand</option>
-						<option value="Vietnam">Vietnam</option>
-						<option value="Malaysia">Malaysia</option>
-						<option value="Singapore">Singapore</option>
-						<option value="Indonesia">Indonesia</option>
-						<option value="Philippines">Philippines</option>
-						<option value="Combodia">Combodia</option>
-						<option value="Taiwan">Taiwan</option>
+					<select class="form-control" (change)="filterForState($event.target.value)" style="padding: 6px 12px;" name="countryName" id="countryName" [(ngModel)]="user.country" #countryName="ngModel" required>
+					
+						<option *ngFor="let country of countries" value={{country.id}}>{{country.countryName}}</option>
+					
 					</select>
 					<div *ngIf="f.submitted && !country.valid" class="help-block">country is required</div>
 
@@ -124,10 +118,9 @@
 				</div>
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
 					<label>Select State</label>
-					<select class="form-control" style="padding: 6px 12px;" name="state" id="state" [(ngModel)]="user.state" #state="ngModel" required>
-						<option value="Delhi">Delhi</option>
-						<option value="UP">UP</option>
-
+					<select class="form-control" (change)="filterForDistrict($event.target.value)" style="padding: 6px 12px;" name="state" id="state" [(ngModel)]="user.state" #state="ngModel" required>
+						<option *ngFor="let state of states" value={{state.id}}>{{state.stateName}}</option>
+					
 					</select>
 					<div *ngIf="f.submitted && !state.valid" class="help-block">state is required</div>
 
@@ -137,9 +130,8 @@
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !district.valid }">
 					<label>Select District</label>
 					<select class="form-control" style="padding: 6px 12px;" name="district" id="district" [(ngModel)]="user.district" #district="ngModel" required>
-						<option value="Delhi">Delhi</option>
-						<option value="UP">UP</option>
-					</select>
+						<option *ngFor="let district of districts" value={{district.id}}>{{district.districtName}}</option>
+						</select>
 					<div *ngIf="f.submitted && !district.valid" class="help-block">Distict is required</div>
 
 				</div>
@@ -260,16 +252,9 @@
 			<div class="row">
 				<div class="col-md-6" [ngClass]="{'has-error':f2.submitted && ! country.valid}">
 					<label>Country</label>
-					<select class="form-control" style="padding: 6px 12px;" name="country" id="country" [(ngModel)]="partner.country" #country="ngModel">
-						<option value="India">India</option>
-						<option value="Thailand">Thailand</option>
-						<option value="Vietnam">Vietnam</option>
-						<option value="Malaysia">Malaysia</option>
-						<option value="Singapore">Singapore</option>
-						<option value="Indonesia">Indonesia</option>
-						<option value="Philippines">Philippines</option>
-						<option value="Combodia">Combodia</option>
-						<option value="Taiwan">Taiwan</option>
+					<select class="form-control"  (change)="filterForState($event.target.value)"  style="padding: 6px 12px;" name="country" id="country" [(ngModel)]="partner.country" #country="ngModel">
+						
+						<option *ngFor="let country of countries" value={{country.id}}>{{country.countryName}}</option>
 					</select>
 					<div *ngIf="f2.submitted && !country.valid" class="help-block">Country is required</div>
 
@@ -279,9 +264,8 @@
 				</div>
 				<div class="col-md-6" [ngClass]="{'has-error':f2.submitted && ! stateName.valid}">
 					<label>Select State</label>
-					<select class="form-control" style="padding: 6px 12px;" name="stateName" id="stateName" [(ngModel)]="partner.state" #stateName="ngModel">
-						<option value="Delhi">Delhi</option>
-						<option value="UP">UP</option>
+					<select class="form-control"  (change)="filterForDistrict($event.target.value)"  style="padding: 6px 12px;" name="stateName" id="stateName" [(ngModel)]="partner.state" #stateName="ngModel">
+						<option *ngFor="let state of states" value={{state.id}}>{{state.stateName}}</option>
 					</select>
 					<div *ngIf="f2.submitted && !stateName.valid" class="help-block">State is required</div>
 
@@ -304,8 +288,7 @@
 				<div class="col-md-6" [ngClass]="{'has-error':f2.submitted && ! distict.valid}">
 					<label>Select District</label>
 					<select class="form-control" style="padding: 6px 12px;" name="district" id="distict" [(ngModel)]="partner.district" #distict="ngModel">
-						<option value="Delhi">Delhi</option>
-						<option value="UP">UP</option>
+						<option *ngFor="let district of districts" value={{district.id}}>{{district.districtName}}</option>
 					</select>
 					<div *ngIf="f2.submitted && !distict.valid" class="help-block">Distict is required</div>
 

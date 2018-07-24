@@ -29,8 +29,8 @@
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
 					<label>Email</label>
 					<input type="text" class="form-control input-sm" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email"
-					 required>
-					<div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+					 >
+					<!-- <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div> -->
 
 				</div>
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
@@ -86,7 +86,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
+				<div class="col-md-12" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
 					<label> Address</label>
 					<input type="text" class="form-control" placeholder=" Addresss" name="address" id="address" [(ngModel)]="user.village" #address="ngModel"
 					 required>
@@ -94,14 +94,7 @@
 
 
 				</div>
-				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !pin.valid }">
-						<label>Zip/Pin Code</label>
-						<input type="text" name="pin" id="pin" [(ngModel)]="user.pincode" #pin="ngModel" class="form-control input-sm" placeholder="Enter Zip/Pin Code"
-						 required>
-	
-						<div *ngIf="f.submitted && !district.valid" class="help-block">Zip/Pin is required</div>
-	
-					</div>
+				
 			</div>
 
 			<div class="row">
@@ -128,21 +121,20 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !district.valid }">
-					<label>Select District</label>
-					<select class="form-control" style="padding: 6px 12px;" name="district" id="district" [(ngModel)]="user.district" #district="ngModel" required>
+					<label>Select City</label>
+					<select class="form-control" style="padding: 6px 12px;" name="district" id="district" [(ngModel)]="user.city" #district="ngModel" required>
 						<option *ngFor="let district of districts" value={{district.id}}>{{district.districtName}}</option>
 						</select>
 					<div *ngIf="f.submitted && !district.valid" class="help-block">Distict is required</div>
 
 				</div>
-				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !city_viilage.valid }">
-					<label>Village/City</label>
-
-					<input type="text" class="form-control input-sm" id="city_viilage" name="city_viilage" [(ngModel)]="user.city" #city_viilage="ngModel"
-					 placeholder="Enter Village/City" required>
-					<div *ngIf="f.submitted && !city_viilage.valid" class="help-block">city/village is required</div>
-
-
+				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !pin.valid }">
+						<label>Zip/Pin Code</label>
+						<input type="text" name="pin" id="pin" [(ngModel)]="user.pincode" #pin="ngModel" class="form-control input-sm" placeholder="Enter Zip/Pin Code"
+						 required>
+	
+						<div *ngIf="f.submitted && !district.valid" class="help-block">Zip/Pin is required</div>
+	
 				</div>
 			</div>
 			<div class="row">

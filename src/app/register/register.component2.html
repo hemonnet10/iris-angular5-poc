@@ -34,10 +34,10 @@
 
 				</div>
 				<div class="col-md-6" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
-					<label>Mobile No</label>
+					<label>Mobile Number</label>
 					<input type="tel" pattern="[0-9]{10}" class="form-control input-sm" name="mobile" id="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="Mobile no"
 					 required>
-					<div *ngIf="f.submitted && !mobile.valid" class="help-block">Valid Mobile is required</div>
+					<div *ngIf="f.submitted && !mobile.valid" class="help-block">Valid Mobile Number is required</div>
 
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 					<label>Confirm Password</label>
 					<input type="password" class="form-control input-sm" name="confirmpasswordR" id="confirmpasswordR" [(ngModel)]="user.confirmPassword"
 					 #confirmpasswordR="ngModel" placeholder="Confirm Password" required>
-					<div *ngIf="f.submitted && !confirmpasswordR.valid" class="help-block">Mobile is required</div>
+					<div *ngIf="f.submitted && !confirmpasswordR.valid" class="help-block">Confirm Password is required</div>
 
 
 				</div>
@@ -325,10 +325,10 @@
 
 				</div>
 				<div class="col-md-6" [ngClass]="{'has-error':f2.submitted && ! mobileNO.valid}">
-					<label>Mobile No</label>
+					<label>Mobile Number</label>
 					<input type="tel" class="form-control input-sm" placeholder="Mobile No" name="mobileNO" id="mobileNO" [(ngModel)]="partner.mobile"
 					 #mobileNO="ngModel">
-					<div *ngIf="f2.submitted && !mobileNO.valid" class="help-block">Mobile is required</div>
+					<div *ngIf="f2.submitted && !mobileNO.valid" class="help-block">Mobile Number is required</div>
 
 				</div>
 			</div>

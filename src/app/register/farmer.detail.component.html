@@ -11,7 +11,7 @@
 			</div>
 			<div class="form-group col-xs-6"
 				[ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
-				<label for="mobile">Mobile No</label> <input type="text"
+				<label for="mobile">Mobile Number</label> <input type="text"
 					class="form-control" id="mobile" name="mobile"
 					[(ngModel)]="user.mobile" #mobile="ngModel" required
 					disabled="disabled" />
@@ -135,11 +135,11 @@
 			</div>
 			<div class="form-group col-xs-6"
 				[ngClass]="{ 'has-error': f.submitted && !familyMember.valid }">
-				<label for="familyMember">No Of Family Members</label> <input
+				<label for="familyMember">Number Of Family Members</label> <input
 					type="text" class="form-control" name="familyMember"
 					[(ngModel)]="farmerDetail.familyMember" #familyMember="ngModel"
 					required />
-				<div *ngIf="f.submitted && !familyMember.valid" class="help-block">No
+				<div *ngIf="f.submitted && !familyMember.valid" class="help-block">Number
 					Of family Member's is required</div>
 			</div>
 			<!--   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !adhaar.valid }">
